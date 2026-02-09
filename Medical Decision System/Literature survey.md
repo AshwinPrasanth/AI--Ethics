@@ -20,6 +20,7 @@ The present paper promises to offer an in-depth overview of the role that AI tec
 
 It highlights the point that interpretability goes beyond technical considerations and is, in fact, a socio-technical requirement for healthcare, which influences trust, accountability, safety, and compliance with regulations (e.g., GDPR). It also discusses various interpretability techniques which can currently be employed, differentiating between ante-hoc or intrinsic techniques such as decision trees or rule-based systems and post-hoc techniques for explanations for black box models.
 
+
   </p>
 </div>
 
