@@ -1,4 +1,4 @@
-# 2 Literature papers can be found in the links below:
+# Literature papers can be found in the links below:
 
 Paper 1: https://onlinelibrary.wiley.com/doi/full/10.1155/2023/9919269
 
