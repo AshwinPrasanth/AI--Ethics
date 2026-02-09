@@ -6,8 +6,11 @@
   <p>
     Clinical decision support systems (CDSS) are one of the most important real-world deployments of AI,
     but their adoption is limited by lack of interpretability, especially for data-driven (black-box) models.
+    
     1. Knowledge-based (symbolic) CDSS =interpretable but limited performance
+    
     2. Data-driven (sub-symbolic) CDSS = high performance but opaque
+    
     3. Hybrid: Underexplored
     
   </p>
