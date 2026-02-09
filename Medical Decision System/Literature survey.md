@@ -38,6 +38,23 @@ It highlights the point that interpretability goes beyond technical consideratio
 
 5. Ultimately, it appears that this paper is promoting interpretability in the sense that it is a fundamental requirement for the ethics and sustainability of AI use in healthcare, rather than being a desirable feature.
   </p>
+
+  <p>
+
+### Identified Research Gaps:
+
+## The paper explicitly and implicitly identifies several research issues that remain unresolved:
+
+1. Lack of Formal DefinitionsThere is no universally accepted definition for interpretability in terms of CDSS.
+
+2. Lack of Objective Evaluation MetricsThe current interpretation metrics are largely based on qualitative and user study-based approaches, without much formal and quantitative validation.
+
+3. Over-reliance on Post-hoc ExplanationsMany CDSS rely on post-hoc explanation techniques and such approaches fail to inhibit harmful and unethical decision making in an assured manner.
+
+4. Underdeveloped Hybrid Methodologies, although there is much discussion regarding the use of hybrid symbolic-sub-symbolic models, there remains a shortage of concrete and reproducible models of such architectures.
+
+5. Limited Use of Formal Verification and ConstraintsEthical compliance is seldom enforced through formal techniques like logic-based constraints and verification. This makes systems prone to failure in dangerous situations.
+  </p>
 </div>
 
 
