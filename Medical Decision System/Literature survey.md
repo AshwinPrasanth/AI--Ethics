@@ -17,11 +17,15 @@
 
   <p>
     
-### Core contributions:
+### Proposed work:
     
-The present paper promises to offer an in-depth overview of the role that AI technology plays in the development of CDSS with particular emphasis placed on the issue of interpretability and ethical CDSS adoption. At the same time, within the context of CDSS technology, it will be reviewed in particular whether knowledge-based CDSS, usually described in terms of their use of rules and ontologies in combination with probabilistic inference, or data-driven CDSS, often based on machine learning and deep learning models, perform better in terms of their prediction capacities. The issue here is that knowledge-based systems offer relatively poor scalability and adaptability capabilities, whereas their data-driven counterparts often function in effect like black boxes.
+● Proposes a classification of CDSS into knowledge-based (symbolic) and data-driven (sub-symbolic) systems and hybrid systems
 
-It highlights the point that interpretability goes beyond technical considerations and is, in fact, a socio-technical requirement for healthcare, which influences trust, accountability, safety, and compliance with regulations (e.g., GDPR). It also discusses various interpretability techniques which can currently be employed, differentiating between ante-hoc or intrinsic techniques such as decision trees or rule-based systems and post-hoc techniques for explanations for black box models.
+● Suggests interpreability as a basic requirement for ethical and clinical use of AI in healthcare systems.
+
+● Proposes a distinction between ante-hoc (white-box) and post-hoc (black-box) explainability
+
+● Suggests that possible solutions to the problem of the performance/interpretability trade-off might be hybrids designed with AI in mind.
   </p>
 
   <p>
