@@ -43,7 +43,7 @@ It highlights the point that interpretability goes beyond technical consideratio
 
 ### Identified Research Gaps:
 
-## The paper explicitly and implicitly identifies several research issues that remain unresolved:
+#### The paper explicitly and implicitly identifies several research issues that remain unresolved:
 
 1. Lack of Formal DefinitionsThere is no universally accepted definition for interpretability in terms of CDSS.
 
