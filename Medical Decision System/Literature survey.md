@@ -4,7 +4,7 @@
 
 ---
 
-## Summary
+### Summary
 
 This paper presents a systematic review of **AI-enabled Clinical Decision Support Systems (CDSS)** with a specific focus on **interpretability as a prerequisite for ethical and clinical adoption**. Although CDSS represent one of the most mature real-world deployments of AI, the paper argues that their widespread use is constrained by the opacity of modern data-driven models.
 
@@ -24,7 +24,7 @@ The authors categorize CDSS into three broad classes:
 
 ---
 
-## Key Contributions
+### Key Contributions
 
 - Proposes a **clear taxonomy** of CDSS based on underlying AI paradigms (symbolic vs sub-symbolic).  
 - Frames **interpretability as a fundamental requirement**, rather than an optional feature, for ethical and safe AI deployment in healthcare.  
@@ -35,7 +35,7 @@ The authors categorize CDSS into three broad classes:
 
 ---
 
-## Main Conclusions
+### Main Conclusions
 
 1. There exists an inherent **trade-off between predictive performance and interpretability** in contemporary AI-based CDSS.  
 2. **Post-hoc explanation techniques**, while useful, are insufficient for guaranteeing safety, accountability, or ethical compliance.  
@@ -45,7 +45,7 @@ The authors categorize CDSS into three broad classes:
 
 ---
 
-## Identified Research Gaps
+### Identified Research Gaps
 
 The review highlights several unresolved challenges:
 
@@ -66,7 +66,7 @@ The review highlights several unresolved challenges:
 
 ---
 
-## Relevance to This Project
+### Relevance to This Project
 
 This paper serves as a **foundational reference** for:
 - Framing AI ethics as a **design and verification problem**, not only a usability issue.
@@ -80,7 +80,7 @@ This paper serves as a **foundational reference** for:
 
 ---
 
-## Summary
+### Summary
 
 This paper investigates why **AI-based Decision Support Systems (AI-DSS)** frequently fail to deliver their promised benefits in real healthcare settings. Rather than focusing on algorithmic limitations, the study adopts a **socio-technical and organizational perspective**, arguing that ethical and practical failures arise primarily from non-technical factors.
 
@@ -88,7 +88,7 @@ Using the **Diffusion of Innovations Theory** and structural equation modeling, 
 
 ---
 
-## Key Findings
+### Key Findings
 
 - AI-DSS performance in practice is **strongly influenced by organizational and human factors**, not just model accuracy.
 - **Data quality** is the most significant predictor of effective AI-assisted decision making.
@@ -98,7 +98,7 @@ Using the **Diffusion of Innovations Theory** and structural equation modeling, 
 
 ---
 
-## Ethical Perspective
+### Ethical Perspective
 
 The paper frames AI-DSS as **human–AI collaborative systems**, emphasizing that ethical outcomes depend on:
 
@@ -110,7 +110,7 @@ Ethical risks are shown to emerge not from malicious algorithms, but from **poor
 
 ---
 
-## Identified Research Gaps
+### Identified Research Gaps
 
 The study highlights several unresolved challenges:
 
@@ -128,7 +128,7 @@ The study highlights several unresolved challenges:
 
 ---
 
-## Relevance to This Project
+### Relevance to This Project
 
 This paper complements technical studies of AI ethics by showing that **ethical failure can occur even when AI systems are accurate and interpretable**. It motivates treating AI-enabled decision support systems as **socio-technical systems**, where ethical guarantees must extend beyond the model to include governance, constraints, and human oversight.
 
@@ -139,7 +139,7 @@ This paper complements technical studies of AI ethics by showing that **ethical 
 
 ---
 
-## Summary
+### Summary
 
 DECIDE-AI addresses the growing gap between the strong retrospective performance of AI-based Clinical Decision Support Systems (CDSS) and their frequent failure or unintended harm during real-world clinical deployment. The paper argues that **laboratory-based and in-silico evaluations are insufficient** to ensure safety, effectiveness, and ethical use once AI systems interact with clinicians and patients.
 
@@ -147,7 +147,7 @@ Rather than proposing new AI models, DECIDE-AI introduces a **reporting and eval
 
 ---
 
-## Key Contributions
+### Key Contributions
 
 - Establishes **standardized reporting guidelines** for early-stage clinical evaluation of AI-based CDSS.
 - Reframes AI-CDSS as **human–AI collaborative systems**, rather than autonomous decision-makers.
@@ -160,7 +160,7 @@ Rather than proposing new AI models, DECIDE-AI introduces a **reporting and eval
 
 ---
 
-## Ethical Perspective
+### Ethical Perspective
 
 The paper frames ethics as a **property of deployment and evaluation**, not merely algorithmic design. Ethical risks are shown to emerge from:
 
@@ -172,7 +172,7 @@ DECIDE-AI treats ethical AI as a **process**, requiring continuous assessment ra
 
 ---
 
-## Conclusions
+### Conclusions
 
 1. High retrospective accuracy does not guarantee clinical benefit or safety.
 2. Many ethical risks arise from **suboptimal early evaluation**, not malicious intent or poor model design.
@@ -182,7 +182,7 @@ DECIDE-AI treats ethical AI as a **process**, requiring continuous assessment ra
 
 ---
 
-## Identified Research Gaps and Limitations
+### Identified Research Gaps and Limitations
 
 DECIDE-AI highlights several open challenges:
 
@@ -197,6 +197,227 @@ DECIDE-AI highlights several open challenges:
 
 ---
 
-## Relevance to This Project
+### Relevance to This Project
 
 This paper demonstrates that ethical AI failures in healthcare often stem from **how systems are evaluated and deployed**, rather than how they are trained. It motivates the need for approaches that connect **model design, interpretability, and formal ethical constraints** with real-world evaluation practices.
+
+
+# Paper 4  
+### Ethical, Legal, and Social Considerations of AI-Based Medical Decision-Support Tools: A Scoping Review  
+**Link:** https://www.sciencedirect.com/science/article/pii/S1386505622000521  
+
+---
+
+### Summary
+
+This paper presents a systematic scoping review of the **ethical, legal, and social implications (ELSI)** associated with AI-based medical decision-support tools. Rather than proposing solutions or technical methods, the review maps the ethical landscape of the field, identifying recurring concerns, dominant themes, and unresolved tensions across the AI lifecycle.
+
+The authors argue that limiting discussions to abstract AI ethics principles risks **ethical whitewashing**, as many challenges emerge from legal ambiguity, social context, and healthcare practice rather than algorithmic design alone.
+
+---
+
+### Core Contribution: The ELSI Framework
+
+The review organizes ethical concerns into **four interacting clusters**:
+
+1. **AI Algorithms**
+   - bias and discrimination  
+   - opacity and lack of explainability  
+   - reliability, robustness, and validation  
+
+2. **Physicians**
+   - automation bias and over-reliance  
+   - deskilling and loss of epistemic authority  
+   - altered clinical judgment  
+
+3. **Patients**
+   - safety and risk of harm  
+   - autonomy and informed consent  
+   - privacy, trust, and data ownership  
+
+4. **Healthcare Systems**
+   - regulatory and governance gaps  
+   - unclear liability frameworks  
+   - workforce and institutional transformation  
+
+These clusters are interdependent and jointly shape the ethical impact of AI-based decision-support systems.
+
+---
+
+### Dominant Ethical Issue Identified
+
+The most frequently discussed concern in the literature is the **transformation of the patient–physician relationship**.
+
+AI introduces a shift from a bilateral interaction (physician–patient) to a **trilateral relationship** involving the physician, the AI system, and the patient. This transformation has implications for trust, responsibility, autonomy, and professional identity.
+
+---
+
+### Key Ethical Tensions Highlighted
+
+- **Safety vs Performance**  
+  High predictive accuracy does not guarantee ethical acceptability or patient safety.
+
+- **Transparency vs Complexity**  
+  Opaque models undermine accountability and informed consent, yet transparency alone does not eliminate bias.
+
+- **Accountability Gap**  
+  Responsibility for harm is often unclear across clinicians, developers, and institutions.
+
+- **Trust and Social Acceptance**  
+  Undisclosed or poorly explained AI use can erode patient and clinician trust.
+
+---
+
+### Ethics-by-Design Perspective
+
+The literature surveyed emphasizes the importance of **Ethics by Design**, arguing that ethical, legal, and social considerations should be addressed during system design and development, rather than treated as post-deployment compliance checks.
+
+---
+
+### Identified Research Gaps
+
+1. **Lack of Operationalization**  
+   Most ethical discussions remain theoretical, with limited translation into concrete system design practices.
+
+2. **Limited Empirical Validation**  
+   Ethical claims are rarely supported by empirical studies of real-world deployments.
+
+3. **Insufficient Integration Across Domains**  
+   Ethical, legal, and social considerations are often treated in isolation rather than as interacting system-level concerns.
+
+4. **Geographical and Contextual Bias**  
+   Much of the literature originates from high-income countries, limiting generalizability.
+
+---
+
+### Relevance to This Project
+
+This paper provides a comprehensive ethical vocabulary and problem space, demonstrating that ethical risks in AI-based medical decision support systems arise not only from algorithms, but from legal ambiguity, social context, and healthcare practice. It motivates approaches that embed ethical considerations into system design, governance, and evaluation.
+
+
+# Paper 5  
+### Explain or Not Explain?—Artificial Intelligence Explainability in Clinical Decision Support Systems  
+**Link:** https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000016  
+
+---
+
+### Summary
+
+This paper examines the ethical significance of explainability in AI-based clinical decision support systems (CDSS), arguing that explainability is not merely a usability feature but a determinant of the system’s moral and epistemic role in decision-making. The authors challenge the assumption that the presence of a human “in the loop” is sufficient to preserve responsibility, showing that opaque AI systems can effectively dominate decisions even when humans retain formal authority.
+
+---
+
+### Core Conceptual Contribution
+
+The paper introduces a critical distinction between different **roles AI systems can play** in clinical decision-making, drawing on classifications from the German Data Ethics Commission:
+
+- **Algorithm-based systems**: AI assists; humans decide.
+- **Algorithm-driven systems**: AI strongly constrains human decisions.
+- **Algorithm-determined systems**: AI effectively decides.
+
+The authors argue that **lack of explainability causes systems labeled as “decision support” to drift from algorithm-based toward algorithm-driven**, thereby undermining meaningful human oversight.
+
+---
+
+### Ethical Significance of Explainability
+
+Explainability is framed as a prerequisite for:
+
+- epistemic justification of decisions  
+- moral responsibility and accountability  
+- critical reflection and contestability  
+
+Without explanations, clinicians may be legally responsible for decisions they are **unable to rationally justify**, creating a responsibility gap between formal authority and practical control.
+
+---
+
+### Key Ethical Insights
+
+- Human-in-the-loop design alone does not guarantee ethical decision-making.
+- Post-hoc explanations may fail to restore genuine understanding or control.
+- Opaque AI systems can inhibit moral reflection by preventing users from assessing reasons behind recommendations.
+- Explainability is instrumental in preserving human moral agency rather than a purely technical enhancement.
+
+---
+
+### Identified Research Gaps
+
+1. **Responsibility Gap**  
+   Existing governance frameworks often preserve formal responsibility while ignoring epistemic dependence on AI systems.
+
+2. **Explainability as System Design Principle**  
+   Explainability is frequently treated as an optional add-on rather than as a structural requirement shaping system behavior.
+
+3. **Limited Integration with Deployment Ethics**  
+   Connections between explainability, accountability, and real-world use remain underdeveloped in applied systems.
+
+---
+
+### Relevance to This Project
+
+This paper establishes that ethical risks in AI-enabled decision support systems arise not only from algorithmic errors, but from how system design choices—particularly explainability—reshape human decision authority and moral accountability. It provides a conceptual foundation for analyzing whether AI systems genuinely support human judgment or silently displace it.
+
+
+# Paper 6  
+### How the Choice of Explanation Affects Human Reliance on AI  
+**Link:** https://dl.acm.org/doi/abs/10.1145/3491102.3502104  
+
+---
+
+### Summary
+
+This paper empirically investigates how different forms of AI explanations affect human reliance on AI advice in decision-making tasks. Rather than treating explainability as a purely transparency-enhancing feature, the study demonstrates that explanations actively influence how much weight humans assign to AI recommendations during judgment.
+
+The paper shows that explainability is not epistemically neutral: explanations alter human behavior, not merely human understanding.
+
+---
+
+### Core Empirical Contribution
+
+Through controlled user studies, the authors demonstrate that:
+
+- Providing explanations significantly increases **human reliance on AI advice**.
+- This increased reliance occurs regardless of whether explanations improve decision accuracy.
+- Explanations change *how* humans integrate AI outputs, not just whether they trust them.
+
+Crucially, the paper does **not** claim that explanations always lead to better decisions. Instead, it shows that explanations systematically shift the balance of influence between human judgment and AI recommendations.
+
+---
+
+### Ethical Significance
+
+The findings reveal that explainability reshapes the **distribution of epistemic authority** in human–AI decision systems:
+
+- Explanations can reduce algorithm aversion.
+- However, they can also increase **automation bias** and over-reliance.
+- As a result, explanations may unintentionally steer human decisions while preserving the appearance of human control.
+
+This creates a tension between transparency and autonomy: explanations can both enable understanding and amplify AI influence.
+
+---
+
+### Key Insights
+
+1. Explainability affects **behavior**, not just perception or trust.
+2. Increased reliance does not necessarily correspond to increased correctness.
+3. Human responsibility may persist formally while practical control shifts toward the AI system.
+4. Explainability can unintentionally convert decision support into decision steering.
+
+---
+
+### Identified Research Gaps
+
+1. **Lack of Normative Guidance**  
+   The paper empirically shows behavioral effects but does not address how much influence is ethically acceptable.
+
+2. **Disconnect from Accountability Frameworks**  
+   While reliance increases, responsibility structures remain unchanged, deepening the responsibility gap.
+
+3. **Limited Integration with Ethical Design**  
+   Explanations are treated as interface features rather than ethical control mechanisms requiring constraint.
+
+---
+
+### Relevance to This Project
+
+This paper provides empirical evidence that explainability is a **mechanism of influence**, not merely a safeguard. It supports the claim that ethical risks in AI-assisted decision-making arise not only from opacity, but also from how explanations reshape human reliance, authority, and responsibility within socio-technical systems.
