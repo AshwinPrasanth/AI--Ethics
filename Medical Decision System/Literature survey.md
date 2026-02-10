@@ -1,179 +1,202 @@
-# Paper 1: 
-### Interpretability of Clinical Decision Support Systems Based on Artificial Intelligence from Technological and Medical Perspective: A Systematic Review
-#### Link: https://onlinelibrary.wiley.com/doi/full/10.1155/2023/9919269
+# Paper 1  
+### Interpretability of Clinical Decision Support Systems Based on Artificial Intelligence from Technological and Medical Perspective: A Systematic Review  
+**Link:** https://onlinelibrary.wiley.com/doi/full/10.1155/2023/9919269  
 
-<div>
-  <p>
-    Clinical decision support systems (CDSS) are one of the most important real-world deployments of AI,
-    but their adoption is limited by lack of interpretability, especially for data-driven (black-box) models.
-    
-    1. Knowledge-based (symbolic) CDSS =interpretable but limited performance
-    
-    2. Data-driven (sub-symbolic) CDSS = high performance but opaque
-    
-    3. Hybrid: Underexplored
-    
-  </p>
+---
 
-  <p>
-    
-### Proposed Work:
-    
-● Proposes a classification of CDSS into knowledge-based (symbolic) and data-driven (sub-symbolic) systems and hybrid systems
+## Summary
 
-● Suggests interpreability as a basic requirement for ethical and clinical use of AI in healthcare systems.
+This paper presents a systematic review of **AI-enabled Clinical Decision Support Systems (CDSS)** with a specific focus on **interpretability as a prerequisite for ethical and clinical adoption**. Although CDSS represent one of the most mature real-world deployments of AI, the paper argues that their widespread use is constrained by the opacity of modern data-driven models.
 
-● Proposes a distinction between ante-hoc (white-box) and post-hoc (black-box) explainability
+The authors categorize CDSS into three broad classes:
 
-● Suggests that possible solutions to the problem of the performance/interpretability trade-off might be hybrids designed with AI in mind.
-  </p>
+1. **Knowledge-based (symbolic) CDSS**  
+   - Rule-based or ontology-driven systems  
+   - High interpretability but limited scalability and adaptability  
 
-  <p>
-    
-### Conclusion:
+2. **Data-driven (sub-symbolic) CDSS**  
+   - Machine learning and deep learning-based systems  
+   - High predictive performance but low transparency  
 
-1. Inherent trade-offs exist between predictive accuracy or performance and interpretability in contemporary CDSS.
+3. **Hybrid CDSS**  
+   - Combine symbolic medical knowledge with data-driven learning  
+   - Identified as promising but largely underdeveloped  
 
-2. While post-hoc explanations can be helpful, they are currently inadequate for ensuring ethical conduct, safety, or accountability.
+---
 
-3. Hybrid CDSS using symbolic representations of knowledge and learning mechanisms are an interesting area but are still immature and vague.
+## Key Contributions
 
-4. Interpretability should be understood from the point of view of end-users rather than depending on the technical explanation metric alone.
+- Proposes a **clear taxonomy** of CDSS based on underlying AI paradigms (symbolic vs sub-symbolic).  
+- Frames **interpretability as a fundamental requirement**, rather than an optional feature, for ethical and safe AI deployment in healthcare.  
+- Distinguishes between:
+  - **Ante-hoc (intrinsically interpretable / white-box) models**, and  
+  - **Post-hoc (black-box) explanation methods**.  
+- Argues that **hybrid CDSS** may offer a potential solution to the performance–interpretability trade-off, although current approaches remain immature.
 
-5. Ultimately, it appears that this paper is promoting interpretability in the sense that it is a fundamental requirement for the ethics and sustainability of AI use in healthcare, rather than being a desirable feature.
-  </p>
+---
 
-  <p>
+## Main Conclusions
 
-### Identified Research Gaps:
+1. There exists an inherent **trade-off between predictive performance and interpretability** in contemporary AI-based CDSS.  
+2. **Post-hoc explanation techniques**, while useful, are insufficient for guaranteeing safety, accountability, or ethical compliance.  
+3. Hybrid symbolic–sub-symbolic CDSS are frequently proposed but **lack concrete, reproducible architectures**.  
+4. Interpretability should be evaluated **from the clinician’s perspective**, not solely through technical explanation metrics.  
+5. The paper positions interpretability as a **core ethical requirement** for sustainable AI use in healthcare systems.
 
-#### The paper explicitly and implicitly identifies several research issues that remain unresolved:
+---
 
-1. Lack of Formal DefinitionsThere is no universally accepted definition for interpretability in terms of CDSS.
+## Identified Research Gaps
 
-2. Lack of Objective Evaluation MetricsThe current interpretation metrics are largely based on qualitative and user study-based approaches, without much formal and quantitative validation.
+The review highlights several unresolved challenges:
 
-3. Over-reliance on Post-hoc Explanations - Many CDSS rely on post-hoc explanation techniques and such approaches fail to inhibit harmful and unethical decision making in an assured manner.
+1. **Lack of Formal Definitions**  
+   - No universally accepted or operational definition of interpretability in CDSS exists.
 
-4. Underdeveloped Hybrid Methodologies - although there is much discussion regarding the use of hybrid symbolic-sub-symbolic models, there remains a shortage of concrete and reproducible models of such architectures.
+2. **Absence of Objective Evaluation Metrics**  
+   - Current evaluation methods rely heavily on qualitative user studies, with limited formal or quantitative validation.
 
-5. Limited Use of Formal Verification and Constraints - Ethical compliance is seldom enforced through formal techniques like logic-based constraints and verification. This makes systems prone to failure in dangerous situations.
-  </p>
-</div>
+3. **Over-reliance on Post-hoc Explanations**  
+   - Post-hoc methods do not provide guarantees against unsafe or unethical system behavior.
 
+4. **Underdeveloped Hybrid Methodologies**  
+   - Symbolic–sub-symbolic integration is conceptually discussed but rarely implemented in a rigorous or reproducible manner.
 
-# Paper 2: 
-### Artificial Intelligence (AI) Integration into the Decision Support Systems of Health Care Centers
-#### Link: https://link.springer.com/chapter/10.1007/978-3-031-90131-7_19
+5. **Minimal Use of Formal Verification or Constraints**  
+   - Ethical compliance is seldom enforced through logic-based constraints or formal verification, leaving systems vulnerable in safety-critical scenarios.
 
-<div>
-  <p>
-    AI-based decision support systems often fail to deliver benefits in real healthcare settings, not due to poor algorithms, but due to organizational, human, and governance-related factors.
+---
 
-    1. Technically strong AI-DSS → fail due to poor organizational readiness
+## Relevance to This Project
 
-    2. AI systems in practice → ethical risks arise from over-reliance and weak governance
+This paper serves as a **foundational reference** for:
+- Framing AI ethics as a **design and verification problem**, not only a usability issue.
+- Motivating the use of **symbolic reasoning, constraints, or formal methods** in AI-enabled decision support systems.
+- Justifying further exploration of **hybrid and verifiable AI architectures** in healthcare.
 
-    3. Socio-technical systems → effectiveness depends on humans, data quality, and infrastructure
-    
-  </p>
 
-<p>
+# Paper 2  
+### Artificial Intelligence (AI) Integration into the Decision Support Systems of Health Care Centers  
+**Link:** https://link.springer.com/chapter/10.1007/978-3-031-90131-7_19  
 
-  ### Proposed Work:
+---
 
-● Proposes a set of standardised reporting guidelines for the evaluation of AI-based decision support systems.
+## Summary
 
-● Proposes considering AI-based CDSS as human-AI collaborative systems, rather than autonomous agents.
+This paper investigates why **AI-based Decision Support Systems (AI-DSS)** frequently fail to deliver their promised benefits in real healthcare settings. Rather than focusing on algorithmic limitations, the study adopts a **socio-technical and organizational perspective**, arguing that ethical and practical failures arise primarily from non-technical factors.
 
-● Proposes that before widespread application, safety, human factors, accountability, and bias should be assessed.
+Using the **Diffusion of Innovations Theory** and structural equation modeling, the authors analyze how organizational readiness, data quality, user engagement, and technological infrastructure influence the effectiveness of AI-DSS in healthcare centers.
 
-● Proposes that a lack of evaluation and reporting are ethical risks.
-</p>
+---
 
-<p>
+## Key Findings
 
-### Conclusion:
+- AI-DSS performance in practice is **strongly influenced by organizational and human factors**, not just model accuracy.
+- **Data quality** is the most significant predictor of effective AI-assisted decision making.
+- **Organizational readiness** and **user engagement** play a critical role in preventing misuse and over-reliance on AI.
+- Weak governance and insufficient oversight introduce **ethical risks**, including automation bias and inappropriate delegation of responsibility to AI systems.
+- Technological infrastructure moderates how effectively AI-DSS can be integrated into clinical workflows.
 
-1. There exists a fundamental trade-off between predictive accuracy and interpretability achieved by the implementations of CDSS systems.
+---
 
-2. Methods of explainability after the fact, though useful, do not ensure ethical behavior, safety, and accountability.
+## Ethical Perspective
 
-3. Another promising but immature and inconsistent approach is hybrid CDSS that combine symbolic KR systems with   data-driven techniques.
+The paper frames AI-DSS as **human–AI collaborative systems**, emphasizing that ethical outcomes depend on:
 
-4. Interpretability should be assessed from a human-centric perspective instead of solely using explanation technique metrics to evaluate it.
+- human judgment and oversight,
+- institutional responsibility,
+- and robust governance mechanisms.
 
-5. Ultimately, the paper places interpretability as a prerequisite for the ethical and sustainable use of AI in healthcare, as opposed to a desirable but practicable improvement.
-</p>
+Ethical risks are shown to emerge not from malicious algorithms, but from **poor deployment practices and uncritical reliance on AI recommendations**.
 
-<p>
+---
 
-### Identified Research Gaps:
-#### The paper raises several research issues, explicitly and implicitly, such as:
+## Identified Research Gaps
 
-1. Lack of Formal Definitions - There exists no universally accepted definition of ‘interpretability’ in CDSSs, and this results in inconsistencies in system design and evaluation.
+The study highlights several unresolved challenges:
 
-2. Absence of Objective Evaluation Metrics - Current methods for interpreting interpretation rely significantly on qualitative or user-centric approaches with little formal or quantitative evaluation being conducted.
+1. **Lack of Deployment-Centered Evaluation**  
+   - Most AI-DSS evaluations focus on predictive performance rather than real-world effectiveness and ethical risk.
 
-3. Over-reliance on Post-hoc Explanations - Many CDSSs rely on post-hoc explanation techniques and, being unable to prevent unethical decisions, can offer no guarantees.
+2. **Insufficient Governance Frameworks**  
+   - There is limited guidance on ensuring accountability, responsibility, and oversight once AI-DSS are deployed.
 
-4. Underdeveloped Hybrid Methodologies, while hybrid approaches involving symbolic or sub-symbolic systems have been widely proposed, there remains a need to develop more concrete and reproducible architectures that integrate domain knowledge, ethical constraints, and learning-based models.
-</p>
-  </div>
+3. **Over-reliance on AI Recommendations**  
+   - Human users may defer excessively to AI outputs in high-pressure environments.
 
+4. **Fragmented Socio-Technical Integration**  
+   - AI-DSS are often introduced without aligning organizational processes, infrastructure, and user training.
 
-# Paper 3: 
-### Reporting guideline for the early stage clinical evaluation of decision support systems driven by artificial intelligence: DECIDE-AI
-#### Link: https: https://www.bmj.com/content/377/bmj-2022-070904.short
+---
 
-<div> 
-  <p>
-    AI-based CDSS frequently perform well in laboratory settings, but fail or cause harm during real-world clinical deployment due to insufficient early evaluation.
+## Relevance to This Project
 
-    1. In-silico evaluation → insufficient for ensuring safety and ethical use
+This paper complements technical studies of AI ethics by showing that **ethical failure can occur even when AI systems are accurate and interpretable**. It motivates treating AI-enabled decision support systems as **socio-technical systems**, where ethical guarantees must extend beyond the model to include governance, constraints, and human oversight.
 
-    2. Human–AI interaction → central source of risk (automation bias, misuse, accountability)
 
-    3. Structured early-stage evaluation → essential for responsible deployment of AI-CDSS
-  </p>
+# Paper 3  
+### Reporting Guideline for the Early-Stage Clinical Evaluation of AI-Driven Decision Support Systems (DECIDE-AI)  
+**Link:** https://www.bmj.com/content/377/bmj-2022-070904.short  
 
-<p>
+---
 
-### Proposed Work:
+## Summary
 
-● It proposes standardised reporting guidelines for early clinical evaluation of AI-based decision support systems.
+DECIDE-AI addresses the growing gap between the strong retrospective performance of AI-based Clinical Decision Support Systems (CDSS) and their frequent failure or unintended harm during real-world clinical deployment. The paper argues that **laboratory-based and in-silico evaluations are insufficient** to ensure safety, effectiveness, and ethical use once AI systems interact with clinicians and patients.
 
-● Suggests AI-based CDSSs be considered as human-AI collaborative systems, not as autonomous agents.
+Rather than proposing new AI models, DECIDE-AI introduces a **reporting and evaluation framework** for the early-stage clinical assessment of AI-driven decision support systems.
 
-● Proposes that safety, human factors, accountability, and bias need to be evaluated.
+---
 
-● Proposes that poor evaluation and poor reporting themselves constitute ethical risks.
-</p>
+## Key Contributions
 
-<p>
-  
-### Conclusion:
+- Establishes **standardized reporting guidelines** for early-stage clinical evaluation of AI-based CDSS.
+- Reframes AI-CDSS as **human–AI collaborative systems**, rather than autonomous decision-makers.
+- Emphasizes the need to evaluate:
+  - safety and failure modes,
+  - human factors and automation bias,
+  - accountability and responsibility,
+  - bias and generalisability across populations.
+- Argues that **poor evaluation and inadequate reporting themselves constitute ethical risks**.
 
-1. High retrospective accuracy is not always associated with clinical benefit or safety.
+---
 
-2. Ethical risks often result from suboptimal early evaluation instead of bad design or intentions.
+## Ethical Perspective
 
-3. The AI-based CDSS has to be viewed as a human-AI collaborative system.
+The paper frames ethics as a **property of deployment and evaluation**, not merely algorithmic design. Ethical risks are shown to emerge from:
 
-4. Insufficient reporting on context, failure modes, and human interface also represents an ethical risk.
+- inappropriate human reliance on AI recommendations,
+- lack of clarity about responsibility for decisions,
+- insufficient understanding of how AI alters clinical workflows.
 
-5. The authors proposed that achievements towards responsible uses of AI would call for sustainable reporting standards that incorporate reports of how AI uses function in real-world environments.
-</p>
+DECIDE-AI treats ethical AI as a **process**, requiring continuous assessment rather than a one-time certification.
 
-<p>
+---
 
-### Identified Research Gaps:
-#### DECIDE-AI indirectly underlines some of the outstanding issues:
+## Conclusions
 
-1. Lack of Formal Guarantees - Though it places emphasis on evaluation and reporting, the guideline fails to offer a mechanism to formally ensure the enforcement of issues like safety, accountability, and ethics.
+1. High retrospective accuracy does not guarantee clinical benefit or safety.
+2. Many ethical risks arise from **suboptimal early evaluation**, not malicious intent or poor model design.
+3. AI-based CDSS must be evaluated as **socio-technical systems** involving both human and algorithmic agents.
+4. Insufficient reporting on context, usage conditions, and failure modes represents a significant ethical concern.
+5. Responsible deployment of AI in healthcare requires **sustained and structured evaluation standards**.
 
-2. Separation from Model Design - The treatment of ethical evaluation as separate and independent of algorithmic architecture leaves unanswered the question of how ethical requirements might be embedded in the system.
+---
 
-3. Limited Integration with Interpretability Research - The exclusion of interpretability metrics shows a disparity that exists between deployment ethics and model-level interpretability research.
-</p>
-</div>
+## Identified Research Gaps and Limitations
+
+DECIDE-AI highlights several open challenges:
+
+1. **Lack of Formal Guarantees**  
+   - The guidelines do not provide mechanisms to formally enforce safety, accountability, or ethical constraints.
+
+2. **Separation from Model Design**  
+   - Ethical evaluation is treated as external to algorithmic architecture, leaving open how ethical requirements could be embedded within AI systems.
+
+3. **Limited Integration with Interpretability Research**  
+   - Interpretability and explainability metrics are deliberately excluded, revealing a gap between deployment-focused ethics and model-level transparency research.
+
+---
+
+## Relevance to This Project
+
+This paper demonstrates that ethical AI failures in healthcare often stem from **how systems are evaluated and deployed**, rather than how they are trained. It motivates the need for approaches that connect **model design, interpretability, and formal ethical constraints** with real-world evaluation practices.
