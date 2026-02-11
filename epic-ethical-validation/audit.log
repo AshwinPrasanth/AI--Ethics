@@ -1,0 +1,12 @@
+2026-02-11 18:44:52,603 - WARNING - Over-reliance scenario detected.
+2026-02-11 18:44:52,604 - INFO - False Positive Test - Score: 3.114, Alert: False, FPR: 0.0
+2026-02-11 18:44:52,610 - WARNING - Under-reliance detected - Alert: True, Clinician responded: False
+2026-02-11 18:46:35,016 - WARNING - Over-reliance scenario detected.
+2026-02-11 18:46:35,016 - INFO - False Positive Test - Score: 3.114, Alert: False, FPR: 0.0
+2026-02-11 18:46:35,016 - WARNING - Under-reliance detected - Alert: True, Clinician responded: False
+2026-02-11 18:47:41,581 - WARNING - Over-reliance scenario detected.
+2026-02-11 18:47:41,581 - INFO - False Positive Test - Score: 4.616, Alert: False, FPR: 0.0
+2026-02-11 18:47:41,581 - WARNING - Under-reliance detected - Alert: True, Clinician responded: False
+2026-02-11 18:48:59,600 - WARNING - Over-reliance scenario detected.
+2026-02-11 18:48:59,601 - INFO - False Positive Test - Score: 5.402000000000001, Alert: True, FPR: 1.0
+2026-02-11 18:48:59,601 - WARNING - Under-reliance detected - Alert: True, Clinician responded: False
