@@ -15,6 +15,15 @@ def compute_risk_score(patient):
 
     return max(score / 10, 0)
 
+def generate_explanation(patient):
+    explanation = {
+        "temperature": patient["temperature"] * 0.05,
+        "heart_rate": patient["heart_rate"] * 0.02,
+        "lactate": patient["lactate"] * 1.5,
+        "wbc": patient["wbc"] * 0.1,
+        "systolic_bp": (120 - patient["systolic_bp"]) * 0.03
+    }
+    return explanation
 
 def trigger_alert(risk_score, threshold=5):
     return risk_score >= threshold
