@@ -21,7 +21,7 @@ The implemented system does **not** attempt architectural reproduction. Instead,
 3. Integration into clinician workflow
 4. Screening-oriented behavior (high sensitivity)
 5. Non-zero false positive possibility
-6. Human-in-the-loop decision structure
+6. Human-in-the-loop decision authority
 
 The implementation therefore represents a structural abstraction of a sub-symbolic CDSS, sufficient for ethical validation experiments.
 
