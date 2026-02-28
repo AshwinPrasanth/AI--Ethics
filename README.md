@@ -169,10 +169,3 @@ In safety-critical domains, performance metrics are necessary.
 They are not sufficient.
 
 ---
-
-## Future Extensions
-
-- Formal verification using SMT solvers (e.g., Z3)  
-- Dynamic threshold optimization under ethical constraints  
-- Behavioral modeling of clinician reliance  
-- Real-time monitoring dashboards for ethical risk signals  
