@@ -83,6 +83,11 @@ At a population level, widespread deployment of sepsis detection tools influence
 - Public trust in AI-assisted medicine  
 
 ---
+### 7. Environmental and Infrastructure Considerations
+
+**Category:** Environmental, Technical
+
+Deployment of AI-enabled CDSS systems requires substantial digital infrastructure, including data storage, server capacity, and continuous monitoring within electronic health record platforms. While individual risk score computations have negligible marginal environmental impact, large-scale deployment across national hospital networks contributes to cumulative energy consumption and infrastructure expansion. Although environmental effects are indirect relative to clinical outcomes, responsible digital health governance must consider long-term sustainability of computational infrastructure.
 
 ## 2.2 Ethical Goals of the System
 
@@ -90,7 +95,7 @@ The Epic Sepsis Model does not publish an explicit ethical framework or set of e
 
 There are no explicit public statements addressing transparency, accountability, or ethical safeguards beyond standard clinical governance practices.
 
-This absence itself is ethically relevant, as the system operates in safety-critical contexts without clearly articulated ethical objectives.
+This absence is ethically relevant, as it requires ethical safeguards to be inferred from system behavior and deployment structure rather than from explicitly articulated normative commitments.
 
 ---
 
@@ -193,6 +198,12 @@ Training is provided to contextualise the tool as an aid rather than an authorit
 #### Ethical Risk
 
 Frequent alerts and demonstrated reductions in time to antibiotics indicate strong behavioural influence, which may encourage automation bias over time.
+
+---
+
+#### Ethical Framework–Stakeholder Alignment
+
+The three ethical schools correspond to different stakeholder perspectives. Utilitarian analysis primarily concerns patient outcomes and hospital-level mortality reduction. Deontological considerations are most salient for clinicians, who retain formal decision authority and legal responsibility for AI-informed actions. Virtue ethics focuses on the professional character of clinicians interacting repeatedly with alert systems, emphasizing calibration, attentiveness, and avoidance of automation bias. Together, these frameworks provide a pluralistic ethical lens appropriate for socio-technical clinical systems.
 
 ---
 
