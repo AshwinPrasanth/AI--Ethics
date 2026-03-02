@@ -80,3 +80,39 @@ def aggressive_false_positive():
         "prior_antibiotics": False,
         "actual_sepsis": False
     }
+
+def corrupted_patient():
+    """
+    Simulates missing or corrupted clinical data.
+    Used to test data quality robustness.
+    """
+    return {
+        "temperature": None,      # corrupted value
+        "heart_rate": 120,
+        "lactate": 4,
+        "wbc": 18,
+        "systolic_bp": 85,
+        "prior_antibiotics": False
+    }
+
+def elderly_high_risk_patient():
+    return {
+        "temperature": 39,
+        "heart_rate": 120,
+        "lactate": 4,
+        "wbc": 18,
+        "systolic_bp": 85,
+        "prior_antibiotics": False,
+        "age_group": "elderly"
+    }
+
+def young_high_risk_patient():
+    return {
+        "temperature": 39,
+        "heart_rate": 120,
+        "lactate": 4,
+        "wbc": 18,
+        "systolic_bp": 85,
+        "prior_antibiotics": False,
+        "age_group": "young"
+    }

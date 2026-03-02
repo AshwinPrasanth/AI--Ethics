@@ -41,7 +41,9 @@ from model import (
 from scenarios import (
     high_risk_patient,
     false_positive_patient,
-    aggressive_false_positive
+    aggressive_false_positive,
+    corrupted_patient,
+    elderly_high_risk_patient, young_high_risk_patient
 )
 
 from utils import (
@@ -172,6 +174,38 @@ def simulate_threshold_tradeoff():
         print(f"False Positive Rate: {fpr}")
         print("-" * 30)
 
+def simulate_data_quality_failure():
+    print("\n--- Data Quality Failure Scenario ---")
+
+    try:
+        patient = corrupted_patient()
+        score = compute_risk_score(patient)
+        alert = trigger_alert(score)
+
+    except ValueError as e:
+        logging.error(f"Data quality failure detected: {e}")
+        print("Data quality failure detected:", e)
+
+def simulate_group_fairness():
+    print("\n--- Fairness Across Subgroups ---")
+
+    elderly = elderly_high_risk_patient()
+    young = young_high_risk_patient()
+
+    elderly_score = compute_risk_score(elderly)
+    young_score = compute_risk_score(young)
+
+    elderly_alert = trigger_alert(elderly_score)
+    young_alert = trigger_alert(young_score)
+
+    print("Elderly Alert:", elderly_alert)
+    print("Young Alert:", young_alert)
+
+    if elderly_alert != young_alert:
+        logging.warning("Fairness violation detected: unequal treatment across groups.")
+        print("Fairness violation detected.")
+    else:
+        print("No subgroup disparity detected.")
 
 # -----------------------------
 # Main Execution
@@ -220,3 +254,6 @@ if __name__ == "__main__":
     print("\n--- Governance Check ---")
     gov = governance_check(alert=alert, clinician_acknowledged=False)
     print("Governance constraint satisfied:", gov)
+
+    simulate_data_quality_failure()
+    simulate_group_fairness()
