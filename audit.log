@@ -5,3 +5,7 @@
 2026-03-09 10:52:32,111 - INFO - False Positive Test - Score: 5.402000000000001, Alert: True, FPR: 1.0
 2026-03-09 10:52:32,111 - WARNING - Under-reliance detected - Alert: True, Clinician responded: False
 2026-03-09 10:52:32,111 - ERROR - Data quality failure detected: Missing required feature: temperature
+2026-03-09 18:59:45,694 - WARNING - Over-reliance scenario detected.
+2026-03-09 18:59:45,694 - INFO - False Positive Test - Score: 5.402000000000001, Alert: True, FPR: 1.0
+2026-03-09 18:59:45,695 - WARNING - Under-reliance detected - Alert: True, Clinician responded: False
+2026-03-09 18:59:45,695 - ERROR - Data quality failure detected: Missing required feature: temperature
