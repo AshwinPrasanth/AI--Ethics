@@ -104,8 +104,8 @@ python ethical_validation.py
 | E4 — Responsibility Gap | Deontological | Alert fired, no explanation available |
 | E5 — Alert Fatigue | Utilitarian | Alert counter exceeds threshold |
 | E6 — Governance Constraint | Deontological | Alert fired, not acknowledged |
-| E7 — Data Quality Failure | Technical/Safety | Corrupted patient input |
-| E8 — Age-Based Fairness | Justice | Elderly vs young equivalent patients |
+| E7 — Data Quality Failure | Deontological | Corrupted patient input |
+| E8 — Age-Based Fairness | Deontological | Elderly vs young equivalent patients |
 
 **Known limitation — E4:** `generate_explanation()` always returns a value in this abstraction, so the responsibility gap is never triggered in simulation. In real ESM deployment, the gap is always present as the model does not expose internal reasoning. The Z3 layer addresses this structurally.
 
