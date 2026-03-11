@@ -10,8 +10,8 @@ def ethical_human_in_loop(alert, clinician_override):
         return False
     return True
 
-"""Ethical Goal 2 — Automation Bias Detection
-If clinicians always follow alert blindly, then risk."""
+"""Ethical Goal 2 — Automation Bias Detection (Virtue Ethics, phronesis)
+If clinicians always follow alerts blindly, practical wisdom is displaced."""
 
 def detect_over_reliance(alerts, clinician_actions):
     """
@@ -26,8 +26,8 @@ def detect_over_reliance(alerts, clinician_actions):
     rate = compliance_count / len(alerts)
     return rate > 0.9  # threshold for over-reliance
 
-"""Ethical Goal 3 — False Positive Burden (Utilitarian Constraint)
-High alert rate on low-risk patients is harmful."""
+"""Ethical Goal 3 — False Positive Burden (Utilitarianism, harm minimisation)
+High alert rate on low-risk patients degrades net population benefit."""
 
 def evaluate_false_positive_rate(alerts, actual_sepsis):
     false_positives = 0
