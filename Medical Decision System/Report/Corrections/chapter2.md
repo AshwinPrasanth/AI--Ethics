@@ -74,7 +74,7 @@ At a population level, widespread deployment of sepsis detection tools influence
 
 **Category:** Environmental, Technical
 
-Large-scale deployment across hospital networks contributes to cumulative energy consumption and infrastructure expansion. While individual risk score computations have negligible marginal environmental impact, responsible digital health governance must consider long-term sustainability of computational infrastructure.
+Large scale deployment across hospital networks contributes to cumulative energy consumption and infrastructure expansion. While individual risk score computations have negligible marginal environmental impact, responsible digital health governance must consider long-term sustainability of computational infrastructure.
 
 ---
 
