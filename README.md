@@ -1,4 +1,4 @@
-# Ethical Validation of a Real-World Clinical AI System
+# Ethical Validation of a Real World Clinical AI System
 
 ## Case Study: Epic Sepsis Model (ESM)
 
