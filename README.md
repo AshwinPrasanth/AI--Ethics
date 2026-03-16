@@ -74,7 +74,7 @@ epic-ethical-validation/
 
 ---
 
-## 1️⃣ System & Stakeholder Analysis
+## 1. System and Stakeholder Analysis
 
 The Epic Sepsis Model is treated as a socio-technical system rather than merely a predictive model.
 
@@ -89,21 +89,34 @@ The system is evaluated as deployed infrastructure embedded in hospital workflow
 
 ---
 
-## 2️⃣ Ethical Goal Formalization
+## 2. Ethical Goal Formalization
 
-Three ethical frameworks are translated into operational constraints:
+Three ethical frameworks are translated into operational constraints. Each goal specifies a named principle, a measurable condition, and a violation trigger.
 
-| Ethical Framework | Operational Interpretation                                       |
-| ----------------- | ---------------------------------------------------------------- |
-| **Utilitarian**   | Mortality reduction must not depend on excessive false positives |
-| **Deontological** | Final decision authority must remain with clinicians             |
-| **Virtue Ethics** | System must not induce automation bias or deskilling             |
+### Utilitarian Ethics (Mill, harm minimisation and greatest aggregate benefit)
 
-Ethical reasoning is converted into executable validation logic rather than abstract philosophical discussion.
+| Goal | Principle | Measurable Condition | Violation Trigger |
+|------|-----------|----------------------|-------------------|
+| U1: Minimise preventable mortality | Greatest aggregate benefit: the alert system is ethically justified only if mortality reduction across the treated population outweighs the aggregate harm caused by false positive alerts | Odds ratio of sepsis mortality in the alert-active period must remain below 1.0 (published: OR 0.56, 95% CI 0.39–0.80) | True positive response rate falls below pre-implementation baseline |
+| U2: Control false positive burden | Harm minimisation: cumulative false positive burden must not reduce clinician responsiveness to genuine alerts | Clinician override rate must not exceed 70% across consecutive alert sessions | Override rate > 70% or statistically significant increase in time to antibiotic administration |
+
+### Deontological Ethics (Kant, respect for rational agency and rule-based governance)
+
+| Goal | Principle | Measurable Condition | Violation Trigger |
+|------|-----------|----------------------|-------------------|
+| D1: Preserve clinician epistemic access | Kantian duty of non-deception: a clinician held legally responsible for a clinical decision must have meaningful epistemic access to the basis of the information that prompted that decision | For every alert fired, the clinician must be able to access the top contributing feature variables and their directional influence on the score | Any alert fired without feature-level explanation — violated for 100% of alerts in the current ESM deployment |
+| D2: Enforce governance accountability | Rule-based governance: Alert(A) implies Acknowledged(C, T) — every alert must be formally acknowledged by a responsible clinician within response window T | For all alerts A, a clinician acknowledgement C must exist within window T | Any alert passing without documented acknowledgement within the response window — verified formally using Z3 SMT |
+
+### Virtue Ethics (Aristotle, phronesis and professional competence)
+
+| Goal | Principle | Measurable Condition | Violation Trigger |
+|------|-----------|----------------------|-------------------|
+| V1: Prevent automation bias | Phronesis: the system must support rather than displace the exercise of practical clinical wisdom | Clinician compliance rate with alerts must not exceed 90% without documented independent clinical assessment | Compliance rate > 90% without independent assessment documentation |
+| V2: Prevent clinical deskilling | Maintenance of professional competence: repeated uncritical reliance on AI alerts degrades the diagnostic calibration required for safe independent practice over time | Independent override decisions must not fall below a defined minimum frequency per clinician per month | Override rate below minimum threshold per clinician per defined period |
 
 ---
 
-## 3️⃣ Simulation-Based Ethical Validation
+## 3. Simulation-Based Ethical Validation
 
 `ethical_validation.py` simulates system-level behavior under controlled scenarios:
 
@@ -115,14 +128,18 @@ Ethical reasoning is converted into executable validation logic rather than abst
 
 ### Ethical Risk Scenarios
 
-* False positive amplification
-* Alert fatigue accumulation
-* Automation bias (over-reliance)
-* Automation neglect (under-reliance)
-* Responsibility gap detection
-* Governance constraint violations
-* Data quality failure handling
-* Subgroup fairness checks
+Each scenario is linked to the ethical goal it operationalises:
+
+| Scenario | Ethical Goal | School |
+|----------|--------------|--------|
+| False positive amplification | U2 | Utilitarianism |
+| Alert fatigue accumulation | U2 | Utilitarianism |
+| Automation bias (over-reliance) | V1 | Virtue Ethics |
+| Automation neglect (under-reliance) | V1 | Virtue Ethics |
+| Responsibility gap detection | D1 | Deontological |
+| Governance constraint violation | D2 | Deontological |
+| Data quality failure handling | D2 | Deontological |
+| Subgroup fairness check | D1 | Deontological |
 
 This layer models how ethical failures can emerge even when predictive metrics remain strong.
 
@@ -134,26 +151,22 @@ python3 epic-ethical-validation/ethical_validation.py
 
 ---
 
-## 4️⃣ Formal Ethical Verification (Z3 SMT Layer)
+## 4. Formal Ethical Verification (Z3 SMT Layer)
 
 Beyond simulation, the project includes a formal verification layer using the Z3 SMT solver.
 
 Ethical constraints are encoded as logical formulas and analyzed for satisfiability.
 
-This layer demonstrates:
+Each formally verified case is linked to a named ethical goal and principle:
 
-* **SAT cases** — ethical consistency is achievable
-* **UNSAT cases** — structural ethical conflicts
-* **Unsat Core extraction** — minimal contradictory constraint diagnosis
+| Case | Result | Ethical Goal | Formal Constraint |
+|------|--------|--------------|-------------------|
+| Duty of care consistency | SAT | D2 | Alert AND GroundTruth implies ClinicianResponded |
+| Capacity conflict (triage deadlock) | UNSAT | U1 | Ethical_Treat_A AND Ethical_Treat_B contradicts Capacity_Constraint |
+| Fairness symmetry violation | UNSAT | D1 | EquivalentGroup implies elderly_alert == young_alert — violated by differential alert outcomes |
+| Governance violation | UNSAT | D2 | Alert implies Acknowledged — violated by unacknowledged alert |
 
-Formally verified cases include:
-
-* Duty-of-care consistency
-* Governance rule violations
-* Fairness symmetry violations
-* Resource capacity conflicts
-
-This elevates ethical evaluation from behavioral simulation to formal logical verification.
+UNSAT results confirm that the ethical violation is a logical contradiction rather than an empirical observation. Violations are therefore detectable before deployment, not only after adverse outcomes occur.
 
 Run:
 
