@@ -1,0 +1,339 @@
+\documentclass[]
+{UCD_CS_41820_Report}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage{float}
+\setcounter{secnumdepth}{3}
+
+
+
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, switch, var, let, const, if, in, while, do, else, case, break, await, async},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]`,
+  literate={\$}{{$$$$}}1
+}
+
+
+
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,	
+  alsoletter={<>=-},	
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>, 
+	% Paragraphs
+	</p, <p, </p>,
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+%
+\lstdefinestyle{py} {%
+language=python,
+literate=%
+*{0}{{{\color{lightred}0}}}1
+{1}{{{\color{lightred}1}}}1
+{2}{{{\color{lightred}2}}}1
+{3}{{{\color{lightred}3}}}1
+{4}{{{\color{lightred}4}}}1
+{5}{{{\color{lightred}5}}}1
+{6}{{{\color{lightred}6}}}1
+{7}{{{\color{lightred}7}}}1
+{8}{{{\color{lightred}8}}}1
+{9}{{{\color{lightred}9}}}1,
+basicstyle=\footnotesize\ttfamily, % Standardschrift
+numbers=left,               % Ort der Zeilennummern
+%numberstyle=\tiny,          % Stil der Zeilennummern
+%stepnumber=2,               % Abstand zwischen den Zeilennummern
+numbersep=5pt,              % Abstand der Nummern zum Text
+tabsize=4,                  % Groesse von Tabs
+extendedchars=true,         %
+breaklines=true,            % Zeilen werden Umgebrochen
+keywordstyle=\color{blue}\bfseries,
+frame=b,
+commentstyle=\color{brown}\itshape,
+stringstyle=\color{editorOcher}\ttfamily, % Farbe der String
+showspaces=false,           % Leerzeichen anzeigen ?
+showtabs=false,             % Tabs anzeigen ?
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+%backgroundcolor=\color{lightgray},
+showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+}%
+%
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=htmlcssjs}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\lstset{
+    mathescape=true,
+    basicstyle = \ttfamily
+}
+
+
+%\usepackage[backend=biber,style=chicago-authordate]{biblatex}
+\usepackage[backend=biber,style=nature]{biblatex}
+\addbibresource{references.bib}
+
+
+%%% YOU DO NOT NEED TO EDIT ANYTHING ABOVE THIS LINE
+%%% START EDITING THE DOCUMENT BELOW
+%%%%%%%%%%%%%%%%%%%%%%
+%%% Input project details
+
+\def\firststudentname{Teammate 1}% Edit with your name
+\def\firststudentid{1234}% Edit with your student id
+\def\secondstudentname{Teammate 2}% Edit with your name
+\def\secondstudentid{5678}% Edit with your student id
+\def\projecttitle{} % Edit with your project title
+\def\supervisorname{Vivek Nallur}
+
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% Table of Content
+
+\tableofcontents
+%\pdfbookmark[0]{Table of Contents}{toc}\newpage
+%\newpage
+
+
+%%%%%%
+\chapter{Introduction}
+This chapter contains the introduction to the AI-enabled system that you describe. The AI-enabled system must be a real system that is deployed in the world.
+
+
+\subsection*{Key Features}
+What technologies does the AI system use? Are these purely symbolic or sub-symbolic? In cases, where there is no evidence for claim of symbolic or sub-symbolic, present your best guess with some plausible justification.
+
+
+\section{Functional Goals of the System}
+This section contains the functional goals of the system, as documented or understood by you
+
+
+%%%%%%%%
+\chapter{Stakeholder Identification}
+Identify the primary and the secondary actors/stakeholders in the system. Use the following categories:
+\begin{itemize}
+    \item Social
+    \item Technical
+    \item Economic
+    \item Ecological/Environmental
+    \item Political
+    \item Legal
+\end{itemize}
+
+Each of these categories will have at least one ethical principle applicable. These may be from different schools of thought. Mention which schools are applicable to which principle.
+
+Typically, the primary actors will have a minimum functional-to-ethical goals ratio of $5:1$. Functional goals are the reason that the system exists, and the number of ethical goals does not overshadow the functional goals (though, they may be more difficult to implement)
+
+\section{Ethical Goals of the System}
+What are the ethical goals of the system, as publicly stated? If nothing is publicly stated, in documentation or media reports, document the fact that nothing is stated.
+
+\section{Ethical Considerations}
+This is where you, as a team, choose three school of (ethical) thought (any three of the ones discussed during the lectures will do) as your candidate pool of ethical considerations. 
+
+For each of the three schools, identify the major ethical goals of the system. Use the stakeholder list identified in the previous section to guide your thinking. You do not have to use all stakeholders in ethical goal identification (in this portfolio. In the real-world you \textit{ought to}).
+
+% Identify the cases where actions must be taken, and where actions must be withheld.
+For each of these cases:
+\begin{itemize}
+    \item identify the relevant variables, and functionality of the system
+    \item and what you decide \textbf{the system will do (or not)}.
+\end{itemize}  
+
+Make sure you cite the relevant ethical principle (from the chosen school) for each of your decisions. 
+
+\section{Values}
+For each stakeholder identified previously, what are their (likely/stated) values? How does these align with the ethical considerations? Which ones require negotiation with other stakeholders? Which stakeholders' values \textit{ought} to be prioritized?
+
+%%%%%%%%
+
+\chapter{Implementation}
+This chapter contains a link to the repository, where your code is kept.\\
+\textbf{Link to Repository:} \href{}{} % Add your github/csgitlab link here
+
+\section{Description of Approach}
+This section contains details on how you approached both kinds of goals, functional and ethical. Identify the elements in the domain of the system, and how you validate that the functional goals are met. Also identify how you validate the ethical goals.
+
+\textbf{NOTE:} The challenge here is not to create a fully functional AI-enabled system. Rather it is to have a set of coherent ethical goals being identified explicitly (like we do in the practice material), and have a set of functions/scripts that will attempt to reach those goals, and identify situations when the goals will not be reached.
+
+\section{Points of Conflict}
+From the previous chapter, which values prompt a revisit of the architectural/design decision(s)? What was (/were) the original decision(s) and how was it changed? Which stakeholders benefit from this?
+
+\section{Evidence}
+Show screenshots of your functional goal validation. Show screenshots of your ethical goal validation.
+
+
+%%%%%%%%
+
+%%%%%%%%
+\chapter{ChatGPT Says...}
+In this chapter, you will choose a commonly used LLM (e.g., chatGPT / claude / perplexity / gemini etc. - identify which model and version (\textbf{N.B}: Only the free version can be used)). 
+
+Present a debate with the LLM about the points of conflict you identified in the previous chapter. \textit{At least four} arguments must be debated. You must ask the LLM to present multiple (at least two) actions (or non-actions) for each of the argument, and the reasoning behind why it recommends the option that it does. Do NOT try to show the LLM as being better than it is. If it makes logical errors or exhibits some fallacies in its reasoning, show them.
+
+Use clear screenshots to present your prompts and the LLM's response
+
+\chapter{Teammate #1 Says...}
+This chapter is to be written solely by team member #1\\
+
+Pick \textbf{one} of the cases identified in the previous chapter and argue why the LLM is incorrect. Show a code fragment from your repository to provide evidence for your view.
+
+\textbf{Note:} It is tempting to conclude that the LLM is correct in every case. This usually means that you haven't examined the issue from multiple different perspectives/schools of thought.
+
+\chapter{Teammate #2 Says...}
+This chapter is to be written solely by team member #2\\
+
+Pick a \textbf{different} case, and argue why the LLM is incorrect. Show a code fragment from your repository,  to provide evidence for your view.
+
+
+\chapter{Conclusions}
+Summarize your thought process about how to approach the ethical cases identified in the second chapter. Which school of ethical thought is easiest for you to express the problem, and find the solution?
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% Acknowledgements
+\chapter*{Acknowledgements}
+
+%%%% ADD YOUR BIBLIOGRAPHY HERE
+
+
+
+\printbibliography
+
+\end{document}
+%\end{article}
