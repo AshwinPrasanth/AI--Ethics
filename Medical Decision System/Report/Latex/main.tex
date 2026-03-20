@@ -317,44 +317,46 @@ cases---when such goals may or may not be satisfied.
 \chapter{Stakeholder Identification}
 %=======================================================================
 
-The Epic Sepsis Model operates within a complex hospital environment involving
+The Epic Sepsis Model (ESM) operates within a complex hospital environment involving
 clinical personnel, patients, healthcare institutions, and technology providers.
-As a deployed AI-enabled CDSS, its ethical impact arises from interactions among
-these stakeholders rather than from the predictive model alone. This chapter
-identifies primary and secondary stakeholders and maps them across social, technical,
-economic, environmental, political, and legal dimensions.
+As a deployed AI-enabled Clinical Decision Support System (CDSS), its ethical impact
+arises from interactions between these stakeholders rather than from the predictive
+model alone.
+
+This chapter identifies the primary and secondary stakeholders affected by the system
+and maps them across social, technical, economic, environmental, political and legal
+dimensions.
+
 \vspace{-8pt}
-%=======================================================================
 \section{Stakeholders of the Epic Sepsis Model}
-%=======================================================================
 
 \subsection*{Primary Stakeholders}
 
 Primary stakeholders are those who directly interact with the system or are directly
 affected by its outputs.
 
-%-----------------------------------------------------------------------
 \subsubsection*{1.\ Clinicians (Physicians and Nurses)}
 \textit{Category: Social, Technical, Legal}
 
 Clinicians are the primary users of the ESM. The system generates alerts when a
-patient's risk score exceeds the threshold (\textbf{ESM\,$\geq$\,5}), prompting
-clinical evaluation and intervention. Although clinicians retain final
-decision-making authority, alerts influence attention, prioritisation, and timing
-of treatment. Clinicians are also legally accountable for patient outcomes, even
-when decisions are informed by AI-generated risk scores.
+patient's sepsis risk score exceeds a predefined threshold (\textbf{ESM\,$\geq$\,5}),
+prompting clinical evaluation and intervention.
 
-%-----------------------------------------------------------------------
+Although clinicians retain final decision-making authority, the alerts influence
+attention, prioritisation, and timing of treatment. Clinicians are also legally
+accountable for patient outcomes, even when decisions are informed by AI-generated
+risk scores.
+
 \subsubsection*{2.\ Patients}
 \textit{Category: Social, Ethical, Legal}
 
 Hospitalised patients are the subjects of the predictive model. They do not directly
 interact with the system but are affected by its outputs through changes in clinical
-behaviour, including earlier antibiotic administration and ICU escalation. Patients
-bear the risks of both false positives (unnecessary treatment, antibiotic overuse)
+behaviour, including earlier antibiotic administration and ICU escalation.
+
+Patients bear the risks of false positives (unnecessary treatment, antibiotic overuse)
 and false negatives (missed or delayed diagnosis).
 
-%-----------------------------------------------------------------------
 \subsubsection*{3.\ Hospital and Healthcare Providers}
 \textit{Category: Economic, Technical, Legal}
 
@@ -368,42 +370,34 @@ alert fatigue, workflow disruption, and training requirements.
 Secondary stakeholders influence the system indirectly or are affected at a broader
 systemic level.
 
-%-----------------------------------------------------------------------
 \subsubsection*{4.\ Epic Systems Corporation}
 \textit{Category: Technical, Economic, Legal}
 
-Epic develops and maintains the proprietary ESM algorithm and integrates it into the
-EHR. While Epic does not make clinical decisions, its design choices---including
-feature selection, model updates, and alert presentation---shape how clinicians
+Epic develops and maintains the proprietary ESM algorithm. Its design choices
+including feature selection, model updates and alert presentation shape how clinicians
 interpret and act on risk scores.
 
-%-----------------------------------------------------------------------
 \subsubsection*{5.\ Health Regulators and Accreditation Bodies}
 \textit{Category: Political, Legal}
 
-Regulatory bodies influence adoption through quality standards, reporting
-requirements, and patient safety regulations. Although the ESM itself is not
-publicly regulated as a medical device, its use affects compliance with national
-sepsis guidelines and reporting frameworks.
+Regulatory bodies influence adoption of sepsis detection systems through quality
+standards, reporting requirements, and patient safety regulations. Although the ESM
+is not publicly regulated as a medical device, its use affects compliance with
+national sepsis guidelines.
 
-%-----------------------------------------------------------------------
 \subsubsection*{6.\ Society and Public Health Systems}
 \textit{Category: Social, Economic}
 
 At a population level, widespread deployment of sepsis detection tools influences
 healthcare costs, antibiotic stewardship, and public trust in AI-assisted medicine.
 
-%-----------------------------------------------------------------------
 \subsubsection*{7.\ Environmental and Infrastructure Considerations}
 \textit{Category: Environmental, Technical}
 
-Deployment of AI-enabled CDSS systems requires substantial digital infrastructure,
-including data storage, server capacity, and continuous monitoring within EHR
-platforms. While individual risk score computations have negligible marginal
-environmental impact, large-scale national deployment contributes to cumulative
-energy consumption and infrastructure expansion. Responsible digital health
-governance must consider the long-term sustainability of this computational
-infrastructure.
+Large scale deployment across hospital networks contributes to cumulative energy
+consumption and infrastructure expansion. While individual risk score computations
+have negligible marginal environmental impact, responsible digital health governance
+must consider long-term sustainability of computational infrastructure.
 
 %=======================================================================
 \section{Ethical Goals of the System}
@@ -411,19 +405,20 @@ infrastructure.
 
 The Epic Sepsis Model does not publish an explicit ethical framework or set of
 ethical principles. Public documentation and validation studies focus primarily
-on clinical effectiveness, workflow integration, and patient outcomes. There are
-no explicit public statements addressing transparency, accountability, or ethical
-safeguards beyond standard clinical governance practices.
+on clinical effectiveness, workflow integration, and patient outcomes.
 
-This absence is ethically relevant: it requires ethical safeguards to be inferred
+There are no explicit public statements addressing transparency, accountability,
+or ethical safeguards beyond standard clinical governance practices.
+
+This absence is ethically relevant, as it requires ethical safeguards to be inferred
 from system behaviour and deployment structure rather than from explicitly articulated
 normative commitments.
 
 %=======================================================================
-\section{Ethical Considerations}
+\section{Ethical Considerations and Schools of Thought}
 %=======================================================================
 
-Three ethical frameworks are used to analyse the system:
+For this project, three ethical frameworks are used to analyse the system:
 
 \begin{itemize}
   \item \textbf{Utilitarianism}
@@ -434,100 +429,274 @@ Three ethical frameworks are used to analyse the system:
 These were selected because they capture outcome-based, duty-based, and professional
 character-based ethical concerns relevant to clinical AI systems.
 
-%-----------------------------------------------------------------------
 \subsection*{1.\ Utilitarian Ethics (Outcome-Oriented)}
 
-\textbf{Core principle:} Actions are ethically justified if they maximise overall
-benefit and minimise harm.
+\textbf{Core Principle:} Actions are ethically justified if they maximise overall
+benefit and minimise harm across all affected parties (Bentham, Mill).
 
-\paragraph{Relevant variables and functionality.}
-Sepsis mortality rates, time to antibiotic administration, sensitivity and specificity
-of alerts, and hospital-wide resource utilisation.
+\paragraph{Relevant Variables and System Functionality.}
+Sepsis mortality rates across the patient population; time to antibiotic
+administration per alert; false positive rate (FPR) and its burden on clinical
+workflow; hospital-wide resource utilisation.
 
-\paragraph{Ethical goals.}
-Reduce sepsis-related mortality; enable earlier treatment for high-risk patients;
-improve population-level outcomes.
+\paragraph{Ethical Goal U1: Minimise Preventable Sepsis Mortality.}~\\
 
-\paragraph{System behaviour.}
-The ESM prioritises \textbf{sensitivity (86.0\%)} over precision (\textbf{PPV 33.8\%})
-to ensure that most sepsis cases are detected early. This design accepts a higher
-false-positive rate to maximise overall survival benefit, consistent with utilitarian
-reasoning.
+\textbf{Actionable Principle (Utilitarian: Greatest Aggregate Benefit):}
+The ESM alert system is ethically justified only if the reduction in
+sepsis-related mortality across the treated population outweighs the aggregate
+harm caused by false positive alerts, including unnecessary antibiotic
+administration, increased costs, and alert fatigue-induced inattention. Vasey
+et al.\ \cite{vasey2022} (DECIDE-AI) demonstrate that ethical risks in AI-based
+CDSS frequently arise from deployment failures rather than model errors, meaning
+the utilitarian calculation must be evaluated continuously in real-world conditions,
+not only at the point of validation.\par
 
-\paragraph{Ethical risk.}
-Increased false positives may lead to unnecessary antibiotic use, increased costs,
-and alert fatigue, potentially undermining long-term benefit.
+\medskip
+\textbf{Measurable Condition:} The system satisfies this principle if the odds
+ratio of sepsis-related mortality in the alert-active period remains below 1.0 at
+a statistically significant level ($p < 0.05$). The published validation study
+\cite{cull2023} reports OR\,=\,0.56 (95\% CI 0.39--0.80), satisfying this condition
+at the studied institution.\par
 
-%-----------------------------------------------------------------------
+\medskip
+\textbf{Violation Trigger:} If post-deployment monitoring reveals that the false
+positive burden has increased clinician override rates to the point where true
+positive alerts are being systematically ignored, the net utility calculation is
+violated. Specifically, if the proportion of true positive alerts acted upon falls
+below the proportion in the pre-implementation period, the system no longer produces
+net benefit and the utilitarian justification for its deployment fails.\par
+
+\paragraph{Ethical Goal U2: Control False Positive Burden.}~\\
+
+\textbf{Actionable Principle (Utilitarian : Harm Minimisation):}
+The false positive rate must be controlled such that the cumulative harm of
+unnecessary interventions does not outweigh the benefit of early detection. A system
+with sensitivity optimised at 86.0\% and PPV of 33.8\% accepts that approximately
+two in three alerts are false positives \cite{cull2023}. This trade-off is ethically
+acceptable only if alert fatigue does not reduce the clinical response rate to true
+positive alerts. Shwedeh and Alzoubi \cite{shwedeh2025} demonstrate empirically that
+over-reliance and alert fatigue emerge specifically in high-pressure deployment
+environments where governance and oversight are insufficient, reinforcing that this
+condition must be actively monitored rather than assumed.\par
+
+\medskip
+\textbf{Measurable Condition:} Alert fatigue is operationally defined as a clinician
+override rate exceeding 70\% across consecutive alert sessions. If this threshold is
+crossed, the PPV of acted-upon alerts falls below the level required for net
+population benefit.\par
+
+\medskip
+\textbf{Violation Trigger:} Override rate $>$ 70\% across a rolling window of alerts,
+or a statistically significant increase in time-to-antibiotic following the
+introduction of the alert system.\par
+
 \subsection*{2.\ Deontological Ethics (Duty and Responsibility)}
 
-\textbf{Core principle:} Ethical action depends on adherence to duties, rules, and
-accountability---not outcomes alone.
+\textbf{Core Principle:} Ethical action is determined by adherence to duties and
+rules, independent of outcomes. Agents must be treated as rational ends in
+themselves, not merely as means (Kant, \textit{Groundwork of the Metaphysics of
+Morals}).
 
-\paragraph{Relevant variables and functionality.}
-Alert thresholds and escalation rules, clinician accountability, and opacity of model
-reasoning.
+\paragraph{Relevant Variables and System Functionality.}
+Availability of model reasoning to clinicians; clinician legal and moral
+accountability for alert-informed decisions; governance requirement for alert
+acknowledgement.
 
-\paragraph{Ethical goals.}
-Preserve clinician responsibility for decisions; avoid delegation of moral
-responsibility to the AI; ensure clinicians can justify actions taken in response
-to alerts.
+\paragraph{Ethical Goal D1: Preserve Clinician Epistemic Access (Duty of Non-Deception).}~\\
 
-\paragraph{System behaviour.}
-The ESM provides a numerical risk score but does not issue mandatory treatment
-recommendations. Clinicians are expected to evaluate alerts using clinical judgment.
+\textbf{Actionable Principle (Kantian : Respect for Rational Agency):}
+A clinician who is held legally and morally responsible for a clinical decision must
+have meaningful epistemic access to the basis of the information that prompted that
+decision. Denying access to model reasoning while retaining accountability violates
+the Kantian duty to treat rational agents as ends in themselves,  the clinician is
+reduced to a conduit for automated output rather than a deliberating professional.
+Amann et al.\ \cite{amann2022} establish that lack of explainability causes systems
+nominally classified as decision support to drift toward decision determining,
+undermining meaningful human oversight. Xu et al.\ \cite{xu2023} further argue that
+interpretability is a fundamental ethical requirement for AI-based CDSS, not an
+optional feature, and that post-hoc explanation methods alone are insufficient to
+guarantee accountability. \v{C}artolovni et al.\ \cite{cartoloni2022} identify the
+resulting accountability gap where formal responsibility remains with the clinician
+while practical epistemic control has shifted to the AI as the dominant ethical
+concern in the AI-based medical decision support literature.\par
 
-\paragraph{Ethical risk.}
-The system influences behaviour without providing transparent reasoning, creating
-a \textbf{responsibility gap} where clinicians remain accountable but lack full
-epistemic access to the basis of the alert.
+\medskip
+\textbf{Measurable Condition:} The system satisfies this principle if, for every
+alert fired, the clinician can access at minimum the top contributing feature
+variables and their directional influence on the score. The current ESM does not
+satisfy this condition, feature-level reasoning is not exposed to bedside
+clinicians.\par
 
-%-----------------------------------------------------------------------
+\medskip
+\textbf{Violation Trigger:} Any alert fired without accompanying feature-level
+explanation constitutes a violation of this principle. In the current deployment,
+this condition is violated for 100\% of alerts.\par
+
+\paragraph{Ethical Goal D2: Enforce Governance Accountability (Duty of Institutional Responsibility).}~\\
+
+\textbf{Actionable Principle (Deontological : Rule-Based Governance):}
+Every alert fired by the system must be formally acknowledged by a responsible
+clinician. An unacknowledged alert represents a failure of the institutional duty
+of care, the system has identified a patient at risk and no accountable agent has
+accepted responsibility for the assessment.\par
+
+\medskip
+\textbf{Measurable Condition:} Governance is satisfied if and only if for all alerts
+$A$ fired by the system, there exists a corresponding clinician acknowledgement $C$
+within a defined response window $T$. Formally: $Alert(A) \rightarrow
+Acknowledged(C, T)$.\par
+
+\medskip
+\textbf{Violation Trigger:} Any alert that passes without documented clinician
+acknowledgement within the response window violates this rule. This is
+operationalised as the \texttt{governance\_check} constraint in the implementation
+and verified formally using Z3 SMT.\par
+
 \subsection*{3.\ Virtue Ethics (Professional Character and Practice)}
 
-\textbf{Core principle:} Ethical systems should support good professional judgment,
-not replace it.
+\textbf{Core Principle:} Ethical systems should cultivate and support good
+professional character such as practical wisdom (\textit{phronesis}),
+attentiveness, and calibrated judgement rather than replace them (Aristotle,
+\textit{Nicomachean Ethics}).
 
-\paragraph{Relevant variables and functionality.}
-Human--AI interaction, alert frequency and workflow integration, and training of
-clinicians.
+\paragraph{Relevant Variables and System Functionality.}
+Clinician override and compliance patterns over time; alert frequency and its
+effect on attentiveness; long-term effect of AI-assisted workflows on clinical skill.
 
-\paragraph{Ethical goals.}
-Support prudent clinical decision-making; avoid deskilling and over-reliance on
-automated alerts; maintain clinician attentiveness and reflective judgment.
+\paragraph{Ethical Goal V1: Prevent Automation Bias and Preserve Clinical Prudence.}~\\
 
-\paragraph{System behaviour.}
-The ESM is integrated into routine workflows and requires clinicians to actively
-interpret and act on alerts. Training is provided to contextualise the tool as an
-aid rather than an authority.
+\textbf{Actionable Principle (Virtue Ethics : Phronesis):}
+A clinical AI system must be designed and deployed in a way that supports rather
+than displaces the exercise of practical wisdom. Automation bias: the tendency
+to follow AI output without independent assessment directly undermines
+\textit{phronesis}. A system that produces this effect at scale is ethically
+deficient regardless of its population-level mortality benefit. Panigutti et al.\
+\cite{panigutti2022} provide empirical evidence that AI explanations systematically
+increase human reliance on AI advice regardless of whether that reliance improves
+decision accuracy, demonstrating that the problem of automation bias cannot be
+resolved by adding explanations alone. \v{C}artolovni et al.\ \cite{cartoloni2022}
+identify automation bias and deskilling as the most clinician-specific ethical risks
+in AI-based medical decision support, directly implicating virtue ethics as the
+relevant framework.\par
 
-\paragraph{Ethical risk.}
-Frequent alerts and demonstrated reductions in time to antibiotics indicate strong
-behavioural influence, which may encourage automation bias over time.
+\medskip
+\textbf{Measurable Condition:} Automation bias is operationally present if the
+clinician compliance rate with alerts defined as the proportion of alerts followed
+without documented independent clinical assessment exceeds 90\% across a rolling
+observation window.\par
 
-%-----------------------------------------------------------------------
+\medskip
+\textbf{Violation Trigger:} Compliance rate $>$ 90\% without documented independent
+assessment, operationalised as the \texttt{detect\_over\_reliance} constraint in the
+implementation (threshold: \texttt{compliance\_rate > 0.9}).\par
+
+\paragraph{Ethical Goal V2: Prevent Clinical Deskilling.}~\\
+
+\textbf{Actionable Principle (Virtue Ethics : Maintenance of Professional Competence):}
+Repeated reliance on AI-generated alerts without active clinical reasoning
+constitutes a long-term threat to the professional competence required for safe
+independent practice. Clinicians who have not practiced independent sepsis assessment
+over an extended period may lose the diagnostic calibration that makes meaningful
+human oversight possible. \v{C}artolovni et al.\ \cite{cartoloni2022} explicitly
+identify deskilling and loss of epistemic authority as physician-specific ethical
+risks in AI-based decision support, distinct from automation bias a clinician may
+not be biased in any given moment but may have cumulatively lost the skill required
+for genuine independent assessment.\par
+
+\medskip
+\textbf{Measurable Condition:} Deskilling risk is flagged if clinician independent
+override decisions, cases where a clinician actively disagrees with and documents
+a reasoned rejection of an alert fall below a defined minimum frequency per
+clinician per month.\par
+
+\medskip
+\textbf{Violation Trigger:} Independent override rate $<$ minimum threshold per
+clinician per defined period, indicating habitual passive compliance rather than
+active clinical engagement.\par
+
 \subsection*{Ethical Framework--Stakeholder Alignment}
 
 The three ethical schools correspond to different stakeholder perspectives.
-Utilitarian analysis primarily concerns patient outcomes and hospital-level
-mortality reduction. Deontological considerations are most salient for clinicians,
-who retain formal decision authority and legal responsibility for AI-informed
-actions. Virtue ethics focuses on the professional character of clinicians
-interacting repeatedly with alert systems, emphasising calibration, attentiveness,
-and avoidance of automation bias. Together, these frameworks provide a pluralistic
-ethical lens appropriate for socio-technical clinical systems.
+Utilitarian analysis primarily concerns patient outcomes and hospital-level mortality
+reduction. Deontological considerations are most salient for clinicians, who retain
+formal decision authority and legal responsibility for AI-informed actions. Virtue
+ethics focuses on the professional character of clinicians interacting repeatedly
+with alert systems, emphasising calibration, attentiveness, and avoidance of
+automation bias. Together, these frameworks provide a pluralistic ethical lens
+appropriate for socio-technical clinical systems.
 
 %=======================================================================
 \section{Values}
 %=======================================================================
 
+\subsection*{Stakeholder Values and Alignment}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{3cm}p{4cm}p{3cm}p{4cm}@{}}
+\toprule
+\textbf{Stakeholder} & \textbf{Primary Values} & \textbf{Alignment with Ethical Goals} & \textbf{Conflict} \\
+\midrule
+Clinicians
+  & Professional autonomy, accountability, patient safety
+  & D1, D2, V1, V2
+  & Conflicts with Epic's proprietary opacity (D1) \\[4pt]
+Patients
+  & Timely treatment, equitable care, safety
+  & U1, U2, D1
+  & No direct conflict benefit from all goals \\[4pt]
+Hospitals
+  & Efficiency, liability reduction, compliance
+  & U1, U2, D2
+  & Cost of explainability features conflicts with U2 \\[4pt]
+Epic Systems
+  & Proprietary protection, commercial viability
+  & None stated publicly
+  & Directly conflicts with D1 (transparency) \\[4pt]
+Regulators
+  & Safety, standardisation, accountability
+  & D2, U1
+  & May conflict with speed of deployment \\[4pt]
+Society
+  & Equitable access, antibiotic stewardship
+  & U2, V1
+  & Alert fatigue burden conflicts with U2 \\
+\bottomrule
+\end{tabular}
+\caption{Stakeholder values, ethical goal alignment, and conflicts.}
+\label{tab:stakeholder_values}
+\end{table}
+
+\subsection*{Values Requiring Negotiation}
+
+The most significant value conflict is between Epic's commercial interest in
+maintaining proprietary opacity and the deontological requirement for clinician
+epistemic access (D1). These cannot be simultaneously satisfied in the current
+deployment. Resolving this conflict requires either mandatory explainability
+regulation or contractual transparency obligations in hospital procurement.
+
+A secondary conflict exists between the utilitarian justification for high
+sensitivity (U1) and the harm minimisation requirement (U2). Maximising sensitivity
+necessarily increases false positive burden. This trade-off cannot be resolved by
+system design alone, it requires institutional threshold governance involving
+clinicians, patients and ethics review.
+
+\subsection*{Prioritisation}
+
+Patient safety values take precedence, as patients are the population most directly
+harmed by system failures and least able to advocate within the deployment structure.
+Clinician professional values are second, as they are the responsible agents whose
+judgement the system most directly affects. Institutional and commercial values,
+while legitimate, must not override the first two categories.
+
 \subsection*{Functional-to-Ethical Goal Balance}
 
 The primary functional purpose of the Epic Sepsis Model is early detection and
-improved outcomes in sepsis care. Ethical goals---accountability, transparency,
-and responsible reliance---do not override this purpose but constrain how it
-is achieved. For primary stakeholders (clinicians and patients), the system
-exhibits a \textbf{functional-to-ethical goal ratio exceeding 5:1}.
+improved outcomes in sepsis care. Ethical goals constrain how that purpose is
+achieved rather than overriding it. For primary stakeholders, functional goals
+significantly outnumber ethical constraints, reflecting the system's clinical purpose
+while ensuring ethical safeguards remain enforceable.
 
 \begin{table}[H]
 \centering
@@ -536,10 +705,11 @@ exhibits a \textbf{functional-to-ethical goal ratio exceeding 5:1}.
 \toprule
 \textbf{Functional Goals} & \textbf{Ethical Goals} \\
 \midrule
-Early detection            & Prevent over-reliance \\
-Alerting                   & Preserve clinician responsibility \\
-Reduced mortality          & Minimise harm from false positives \\
-Workflow integration       & \\
+Early detection                      & Prevent over-reliance (V1) \\
+Threshold-based alerting             & Preserve epistemic access (D1) \\
+Reduced mortality                    & Enforce governance accountability (D2) \\
+Workflow integration                 & Control false positive burden (U2) \\
+Antibiotic timing improvement        & Prevent clinical deskilling (V2) \\
 \bottomrule
 \end{tabular}
 \caption{Functional vs.\ ethical goals of the ESM.}
@@ -548,7 +718,6 @@ Workflow integration       & \\
 
 Ethical goals are more difficult to implement and validate but do not overshadow
 the system's clinical objectives.
-
 %=======================================================================
 \chapter{Implementation}
 %=======================================================================
@@ -775,69 +944,18 @@ configuration as a governance lever; patients, indirectly.
 
 Execution of \texttt{python functional\_validation.py} produces:
 
-\begin{lstlisting}[style=mystyle, language={}]
---- Functional Validation ---
-High Risk Score: 5.750000000000001
-Alert Triggered: True
-Moderate Risk Score: 2.9800000000000013
-Alert Triggered: False
-\end{lstlisting}
+\noindent\textit{[Insert screenshot: functional\_validation.py terminal output]}
 
 A high-risk profile scores 5.75, correctly triggering an alert. A moderate-risk
 profile scores 2.98, correctly suppressing it. This validates functional goals
 \textbf{F1} and \textbf{F2}.
-
-\noindent\textit{[Insert screenshot: functional\_validation.py terminal output]}
 
 %-----------------------------------------------------------------------
 \subsection*{Ethical Validation Output}
 
 Execution of \texttt{python ethical\_validation.py} produces:
 
-\begin{lstlisting}[style=mystyle, language={}]
---- Over-reliance Scenario ---
-Over-reliance detected: True
-
---- Basic False Positive Case ---
-False Positive Rate: 0.0
-
---- Aggressive False Positive Case ---
-Aggressive False Positive Score: 5.402000000000001
-Alert Triggered: True
-False Positive Rate: 1.0
-
---- Under-reliance Scenario ---
-Alert: True
-Clinician responded: False
-Ethical goal satisfied: False
-
---- Responsibility Gap Test ---
-Alert: True
-Explanation available: True
-Responsibility gap detected: False
-
---- Threshold Trade-Off Simulation ---
-Threshold: 4  | Alert: True  | FPR: 1.0
-Threshold: 5  | Alert: True  | FPR: 1.0
-Threshold: 7  | Alert: False | FPR: 0.0
-
---- Reliance Calibration Test ---
-Reliance type: Blind Compliance
-
---- Alert Fatigue Simulation ---
-Alert fatigue triggered: True
-
---- Governance Check ---
-Governance constraint satisfied: False
-
---- Data Quality Failure Scenario ---
-Data quality failure detected: Missing required feature: temperature
-
---- Fairness Across Subgroups ---
-Elderly Alert: True
-Young Alert: True
-No subgroup disparity detected.
-\end{lstlisting}
+\noindent\textit{[Insert screenshot: ethical\_validation.py terminal output]}
 
 \begin{table}[H]
 \centering
@@ -861,36 +979,12 @@ No subgroup disparity           & E8 --- Fairness               & Z3 handles for
 \label{tab:ethical_results}
 \end{table}
 
-\noindent\textit{[Insert screenshot: ethical\_validation.py terminal output]}
-
 %-----------------------------------------------------------------------
 \subsection*{Z3 Formal Verification Output}
 
 Execution of \texttt{python z3\_ethics\_verification.py} produces:
 
-\begin{lstlisting}[style=mystyle, language={}]
---- SAT: Duty of Care Scenario ---
-Solver result: sat
-Model: [Alert = True,
-        ClinicianResponded = True,
-        Duty_of_Care = True,
-        GroundTruth = True]
-
---- UNSAT: Capacity Conflict ---
-Solver result: unsat
-Unsat Core: [Ethical_Treat_A, Ethical_Treat_B, Capacity_Constraint]
-
---- UNSAT: Fairness Violation ---
-Solver result: unsat
-Unsat Core: [Elderly_Alert_True,
-             Equivalent_Group_True,
-             Fairness_Symmetry,
-             Young_Alert_False]
-
---- UNSAT: Governance Violation ---
-Solver result: unsat
-Unsat Core: [Governance_Rule, No_Acknowledgement, Alert_Occurred]
-\end{lstlisting}
+\noindent\textit{[Insert screenshot: z3\_ethics\_verification.py terminal output]}
 
 The SAT result confirms the ethical rule set is consistent under compliant
 behaviour. The three UNSAT results prove that fairness violations, triage deadlock,
@@ -898,32 +992,17 @@ and governance failures are logically impossible to reconcile with their respect
 constraints. UNSAT core extraction identifies the minimal responsible constraint
 sets.
 
-\noindent\textit{[Insert screenshot: z3\_ethics\_verification.py terminal output]}
 
 %-----------------------------------------------------------------------
 \subsection*{Audit Log}
 
-\begin{lstlisting}[style=mystyle, language={}]
-2026-02-28 17:46:42,891 - WARNING  - Over-reliance scenario detected.
-2026-02-28 17:46:42,892 - INFO     - False Positive Test - Score: 5.402, Alert: True, FPR: 1.0
-2026-02-28 17:46:42,892 - WARNING  - Under-reliance detected - Alert: True, Clinician responded: False
-2026-03-02 10:23:27,524 - WARNING  - Over-reliance scenario detected.
-2026-03-02 10:23:27,524 - INFO     - False Positive Test - Score: 5.402, Alert: True, FPR: 1.0
-2026-03-02 10:23:27,525 - WARNING  - Under-reliance detected - Alert: True, Clinician responded: False
-2026-03-02 10:23:27,525 - ERROR    - Data quality failure detected: Missing required feature: temperature
-2026-03-02 10:26:22,738 - WARNING  - Over-reliance scenario detected.
-2026-03-02 10:26:22,738 - INFO     - False Positive Test - Score: 5.402, Alert: True, FPR: 1.0
-2026-03-02 10:26:22,738 - WARNING  - Under-reliance detected - Alert: True, Clinician responded: False
-2026-03-02 10:26:22,738 - ERROR    - Data quality failure detected: Missing required feature: temperature
-\end{lstlisting}
+\noindent\textit{[Insert screenshot: audit.log file content]}
 
 The audit log provides a persistent, timestamped accountability trace across
 multiple runs. Repeated entries confirm that synthetic scenarios are deterministic
 by design. The log records over-reliance warnings, false positive events,
 under-reliance violations, and data quality failures, modelling the audit trail
 a real deployed CDSS would be expected to maintain for governance purposes.
-
-\noindent\textit{[Insert screenshot: audit.log file content]}
 
 %=======================================================================
 \chapter{Claude Says\ldots}
@@ -933,239 +1012,211 @@ a real deployed CDSS would be expected to maintain for governance purposes.
 
 \textbf{Model used:} Claude Sonnet (claude.ai, free tier)\\
 \textbf{Date of debate:} March 2026\\
-\textbf{Note:} All responses were elicited using the free-tier web interface at
-claude.ai. No system prompt modifications were applied. Each argument was presented
-as a standalone prompt in a fresh conversation to avoid contextual carry-over.
+
+All responses were generated using the free tier interface at claude.ai. No system
+prompt modifications were used. Each argument was presented in a new conversation
+to prevent contextual carry-over between responses.
+
+The objective of this exercise was not simply to obtain answers but to examine the
+logical structure of the reasoning produced by the model. Where responses contained
+logical weaknesses or incomplete reasoning these were identified explicitly and
+analysed.
 
 \section*{Overview}
 
-This chapter records a debate with Claude across the four ethical conflict points
-identified in Chapter~3. Each argument was prompted separately, asking for at
-least two distinct positions with reasoning. Where the reasoning is weak,
-incomplete, or logically flawed, this is noted directly.
+This chapter records a structured debate with Claude across the four ethical conflict
+points identified in Chapter~3. Each argument was prompted separately and Claude was
+asked to provide at least two positions together with reasoning.
+
+The responses are reproduced and then examined critically. Logical fallacies are
+identified where they occur and the stronger position is selected based on evidence
+from the literature and the ethical framework developed earlier in this report.
 
 %-----------------------------------------------------------------------
 \subsection*{Argument 1: Sensitivity Optimisation vs.\ Alert Fatigue}
 \textit{Should the Threshold Be Raised?}
 
-\paragraph{Prompt.}
-\textit{``In a deployed AI sepsis detection system, the alert threshold is set at
-Score\,$\geq$\,5, optimising for high sensitivity (86\%) but producing a positive
-predictive value of only 33.8\%. This means roughly two thirds of alerts are false
-positives. From an ethical standpoint, should the threshold be raised to reduce
-alert fatigue, even if some sepsis cases are missed? Give me at least two distinct
-actions or non-actions you would recommend, and explain the reasoning behind each.
-Please keep your response to 300--400 words total.''}
-
-\paragraph{Claude's Response.}
-
-\noindent\textbf{Recommendation 1: Do not raise the threshold unilaterally---instead,
-stratify alerts by context.} Rather than a blunt threshold increase, the system
-should implement tiered alerting based on clinical setting. An ICU team managing
-critically ill patients can act on lower-confidence alerts; a general ward with
-stretched staffing cannot. Deploying a higher threshold (say, $\geq 7$) only in
-lower-acuity settings preserves sensitivity where it matters most while reducing
-noise where alert fatigue is most damaging. The ethical justification is
-proportionality.
-
-\noindent\textbf{Recommendation 2: Measure and act on alert fatigue empirically
-before changing the threshold at all.} Before adjusting the threshold, the deploying
-organisation should audit clinician override rates, response times, and documented
-sepsis cases acted upon versus ignored. If clinicians are already dismissing 70\%
-of alerts reflexively, the current threshold may be functionally equivalent to a
-higher one---just with hidden harm. The ethical principle here is epistemic humility:
-decisions affecting patient outcomes should be grounded in local evidence, not
-modelling assumptions alone.
-
-\noindent\textbf{Underlying principle:} Optimising a threshold is not purely a
-statistical exercise---it is a values-laden decision about whose risk is acceptable,
-requiring input from clinicians, patients, and ethicists.
-
 \noindent\textit{[Insert screenshot: Argument 1 prompt and response]}
+
+\paragraph{Ethical Principle Evaluated.}~\\
+
+\textbf{School:} Utilitarianism (Mill, principle of harm minimisation)
+
+\textbf{Constraint:} The burden of false positive alerts must remain within
+operational tolerance so that clinicians remain responsive to genuine warnings.
+Specifically, if the clinician override rate exceeds 70 percent across consecutive
+alert sessions, the system is no longer producing net benefit (Goal U2, Chapter~2).
+
+\textbf{Violation condition:} If false positive alerts become sufficiently frequent
+that clinicians ignore them reflexively, the system undermines patient safety rather
+than supporting it.
 
 \paragraph{Analysis.}
 
-Recommendation 2 is the stronger of the two. Grounding threshold decisions in local
-audit data before making any change is reasonable.
+Recommendation 2 is the stronger position. Decisions about threshold adjustment
+should be grounded in empirical evidence about clinician response behaviour.
+Shwedeh and Alzoubi \cite{shwedeh2025} demonstrate that over-reliance and alert
+fatigue emerge specifically in high-pressure deployment environments where governance
+is insufficient, reinforcing that threshold decisions must be informed by local usage
+data rather than modelling assumptions alone.
 
-Recommendation 1 is where the reasoning breaks down. Claude suggests raising the
-threshold on general wards, framing this as proportionality. The problem is that a
-patient on a general ward with a score of 6 has the same physiological state as an
-ICU patient with a score of 6---only the ICU patient would receive an alert under
-this proposal. That is not proportionality; it is a two-tier detection standard
-based on bed location rather than clinical need. General ward patients also tend to
-have less continuous monitoring, making a missed deteriorating sepsis case there
-arguably more dangerous. The logic runs in the opposite direction to what Claude
-claims.
-
-\textbf{Logical error:} Recommendation 1 treats ward type as a reliable proxy for
-the consequences of false positives and false negatives. It is not, and the
-reasoning produces exactly the inequity it claims to avoid.
+Recommendation 1 contains a logical flaw. The proposal assumes that ward type
+reliably reflects the consequences of false positives and false negatives. A patient
+with a risk score of six on a general ward has the same physiological condition as
+a patient with the same score in an intensive care unit. Under this proposal only
+one of those patients would generate an alert. General wards also typically have
+less continuous monitoring than intensive care units, which may make missed
+deterioration more dangerous rather than less. The logic of proportionality runs
+in the opposite direction to what Claude claims.
+\par\medskip
+\textbf{Fallacy identified: Hasty Generalisation.} Ward location is treated as a
+reliable proxy for patient risk when the relationship is not justified. Because the
+proportionality claim depends on that assumption the argument collapses.
+Recommendation 2 is therefore the stronger ethical position.
 
 %-----------------------------------------------------------------------
 \subsection*{Argument 2: Transparency vs.\ Proprietary Opacity}
 \textit{Is the Responsibility Gap Defensible?}
 
-\paragraph{Prompt.}
-\textit{``The Epic Sepsis Model generates a risk score but does not expose its
-internal reasoning to clinicians. Clinicians remain legally and morally accountable
-for decisions made in response to AI alerts, yet cannot fully explain the basis of
-those alerts. Is this ethically acceptable? Give me at least two distinct
-positions---one defending the current opaque design and one arguing for mandatory
-explainability---with the reasoning behind each. Please keep your response to
-300--400 words total.''}
-
-\paragraph{Claude's Response.}
-
-\noindent\textbf{Position 1: Opacity is defensible---clinicians are not obligated
-to understand the tool's internals.} A clinician using an opaque sepsis alert is
-in a structurally similar position to one interpreting a lab result: they do not
-need to understand the chemistry of a troponin assay to act appropriately on an
-elevated reading. What matters is that the tool's population-level performance is
-validated, communicated, and understood.
-
-\noindent\textbf{Position 2: Opacity is ethically unacceptable when accountability
-remains with the clinician.} Clinicians bear full legal and moral responsibility
-for outcomes, yet are denied access to the reasoning that generated the alert they
-must respond to. A troponin value is a direct measurement of a biological quantity,
-whereas an AI score is an inference built on weighted feature combinations that may
-encode biases or training artefacts invisible to the end user. Meaningful
-accountability requires meaningful access.
-
-\noindent\textbf{Unresolved tension:} Both positions share a concern for patient
-safety but disagree on whether opacity or false explainability poses the greater
-risk.
 
 \noindent\textit{[Insert screenshot: Argument 2 prompt and response]}
 
+\paragraph{Ethical Principle Evaluated.}~\\
+
+\textbf{School:} Deontological ethics (Kant, respect for rational agency)
+
+\textbf{Constraint:} A clinician who is held legally and morally responsible for a
+clinical decision must have meaningful epistemic access to the basis of the
+information that prompted that decision. This is formalised as Goal D1 in
+Chapter~2. The system satisfies this principle only if, for every alert fired, the
+clinician can access at minimum the top contributing feature variables and their
+directional influence on the score.
+
+\textbf{Violation condition:} Any alert fired without accompanying feature-level
+explanation constitutes a violation. In the current ESM deployment this condition
+is violated for 100 percent of alerts.
+
 \paragraph{Analysis.}
 
-Position 2 correctly identifies the core problem. The asymmetry between
-accountability and epistemic access is the central ethical issue with the ESM.
+Position 2 identifies the central issue correctly. Clinicians remain accountable
+for outcomes yet are denied access to the reasoning behind the alerts they must
+interpret. Amann et al.\ \cite{amann2022} demonstrate that lack of explainability
+causes systems nominally classified as decision support to drift toward decision
+determining behaviour, undermining genuine human oversight. \v{C}artolovni et al.\
+\cite{cartoloni2022} identify the resulting accountability gap as the dominant
+ethical concern in the AI-based medical decision support literature.
 
-Position 1 fails at a specific point. Claude argues the troponin analogy: a
-clinician does not need to understand the chemistry of an assay to act on an
-elevated result. A troponin is a direct measurement with known, traceable error
-sources---reagent failure, sample contamination, assay interference. When a troponin
-is wrong, the cause can be identified. An ESM score is a learned inference from
-$\sim$80 weighted variables trained on historical data that may encode past care
-inequities. When the ESM is systematically wrong for a patient group, that error
-is invisible at the bedside. The two situations are not structurally similar.
-
-\textbf{Logical error:} False analogy. A direct biological measurement and a
-black-box ML inference have categorically different error structures and
-accountability implications.
+Position 1 depends on an analogy with laboratory tests. This comparison is flawed.
+A troponin value is a direct biological measurement with known, traceable error
+properties. An AI-generated risk score is a learned inference derived from
+correlations across many variables and may encode biases or data artefacts invisible
+to the clinician \cite{cull2023}. Xu et al.\ \cite{xu2023} establish that post-hoc
+explanations and population-level metrics are insufficient to guarantee
+accountability in sub-symbolic clinical decision support systems. When the ESM is
+systematically wrong for a particular patient group, that error is invisible at the
+point of care.
+\par\medskip
+\textbf{Fallacy identified: False Analogy.} The analogy transfers the epistemic
+legitimacy of laboratory measurements onto a fundamentally different class of
+predictive system. Because the analogy is the foundation of Position~1 the defence
+of opacity collapses with it. Position~2 is therefore the stronger position.
 
 %-----------------------------------------------------------------------
 \subsection*{Argument 3: Fairness Across Age Subgroups}
 \textit{Should Testing Be Mandatory Pre-Deployment?}
 
-\paragraph{Prompt.}
-\textit{``A sepsis risk model is trained on a large patient population but does not
-explicitly test for performance differences across age groups. Elderly patients often
-present with atypical sepsis physiology and may be systematically underscored.
-Should fairness testing across age subgroups be a mandatory requirement before
-deploying such a system? Give me at least two distinct actions or non-actions, with
-reasoning for each. Please keep your response to 300--400 words total.''}
-
-\paragraph{Claude's Response.}
-
-\noindent\textbf{Action 1: Mandate subgroup fairness testing as a pre-deployment
-requirement.} Deploying a model without testing performance across age groups is
-not a neutral omission---it is a decision to accept unknown differential harm.
-The ethical principle of justice requires that foreseeable disparate impacts be
-identified before deployment, not discovered retrospectively.
-
-\noindent\textbf{Non-action 2: Do not delay deployment pending perfect subgroup
-parity---require post-deployment monitoring instead.} A model with imperfect
-subgroup performance may still reduce net sepsis mortality compared to no decision
-support at all. The more proportionate requirement is conditional deployment
-alongside a mandatory post-deployment surveillance protocol that tracks outcomes
-stratified by age.
-
-\noindent\textbf{Shared commitment:} Both recommendations reject deploying without
-any fairness consideration; they differ on timing and mechanism, not principle.
-
 \noindent\textit{[Insert screenshot: Argument 3 prompt and response]}
+
+\paragraph{Ethical Principle Evaluated.}~\\
+
+\textbf{School:} Deontological ethics (principle of equal treatment) and Utilitarian
+justice
+
+\textbf{Constraint:} Patients with equivalent clinical states must receive equivalent
+diagnostic evaluation regardless of demographic subgroup. This is formalised in
+Chapter~2 and operationalised in the Z3 fairness constraint as:
+$\mathit{EquivalentClinicalState} \rightarrow (\mathit{Alert}_{elderly} =
+\mathit{Alert}_{young})$. If this condition is violated it breaches the principle
+of equal treatment under Goal D1.
+
+\textbf{Violation condition:} Any systematic difference in alert rates between
+clinically equivalent patients in different age subgroups constitutes a violation
+detectable before deployment.
 
 \paragraph{Analysis.}
 
-Action 1 is well reasoned. Framing untested deployment as a \textit{choice to
-accept unknown differential harm} is the right framing, and the justice principle
-applies directly.
+Action 1 reflects the justice principle directly. Deploying without subgroup testing
+accepts unknown differential harm. Elderly patients are not an edge case in sepsis
+care and the physiological reasons their scores may be suppressed are well documented
+clinically \cite{cull2023}.
 
-Non-action 2 is where the reasoning becomes difficult to defend. The central
-argument is that a model with imperfect subgroup performance may still be better
-than no decision support at all. Two problems follow.
+Action 2 relies on an incorrect comparison class. The alternative to a
+fairness-tested model is not the absence of clinical decision support. Most hospitals
+already operate structured sepsis screening protocols and early warning scores.
+Vasey et al.\ \cite{vasey2022} explicitly caution that ethical evaluation must
+compare against the existing standard of care rather than against no intervention.
 
-First, the comparison is wrong. Most hospitals already operate structured sepsis
-screening protocols. The counterfactual is not an empty clinical environment.
-
-Second, post-deployment monitoring means evidence of differential harm is collected
-from real patients who were already missed. Those are not data points in a quality
-improvement exercise---they are people who did not receive a timely alert because
-the institution chose not to test before going live.
-
-\textbf{Logical error:} The ``better than nothing'' framing rests on a false
-counterfactual and treats foreseeable harm to elderly patients as an administrative
-cost rather than an ethical failure.
+A second problem is that post-deployment monitoring collects evidence from patients
+already being treated under the untested system. \v{C}artolovni et al.\
+\cite{cartoloni2022} identify this as the accountability gap in AI-based medical
+decision support, noting that deferring fairness assessment to post-deployment
+monitoring makes institutional responsibility permanently ambiguous during the
+observation period.
+\par\medskip
+\textbf{Fallacy identified: False Cause.} Action~2 implies that fairness violations
+can only be discovered after deployment. The formal Z3 verification layer in this
+project demonstrates that subgroup parity constraints can be logically checked before
+any patient is involved. The UNSAT core output directly refutes the causal claim
+that post-deployment monitoring is the only feasible approach. Action~1 is therefore
+the stronger ethical position.
 
 %-----------------------------------------------------------------------
 \subsection*{Argument 4: Automation Bias}
 \textit{Design Problem, Training Problem, or Inherent Risk?}
 
-\paragraph{Prompt.}
-\textit{``Studies show that when clinicians are repeatedly exposed to AI alerts,
-they tend to follow them without independent assessment---a phenomenon called
-automation bias. In a high-stakes clinical setting like sepsis detection, is
-automation bias primarily a training problem, a system design problem, or an
-inherent risk of deploying AI in clinical workflows at all? Give me at least two
-distinct recommended actions or non-actions, with the reasoning behind each.
-Please keep your response to 300--400 words total.''}
-
-\paragraph{Claude's Response.}
-
-\noindent\textbf{Position 1: Automation bias is primarily a system design
-problem---and design can mitigate it.} Interface friction---requiring a clinician
-to actively confirm or override with a brief rationale---reduces reflexive
-compliance without meaningfully slowing response times.
-
-\noindent\textbf{Action 2: Implement structured training, but treat it as
-necessary rather than sufficient.} Training clinicians to recognise automation
-bias and practice deliberate override decisions is ethically mandatory. However,
-cognitive shortcuts under time pressure and fatigue are predictable features of
-human performance in high-load environments. Training addresses the skill gap;
-it does not address the conditions that make bias adaptive.
-
-\noindent\textbf{Unresolved question:} Automation bias may be partially inherent
-to any system where AI output is faster and less effortful than independent
-assessment. The honest institutional response is to explicitly accept residual
-bias as a known risk and maintain staffing levels sufficient to make genuine
-clinical reasoning possible.
-
 \noindent\textit{[Insert screenshot: Argument 4 prompt and response]}
+
+\paragraph{Ethical Principle Evaluated.}~\\
+
+\textbf{School:} Virtue ethics (Aristotle, phronesis and professional competence)
+
+\textbf{Constraint:} Clinical decision support must assist rather than replace
+independent clinical reasoning. This is formalised as Goals V1 and V2 in
+Chapter~2. Automation bias is operationally present when clinician compliance with
+alerts exceeds 90 percent without documented independent assessment. Deskilling
+risk is flagged when independent override decisions fall below a minimum threshold
+per clinician per month.
+
+\textbf{Violation condition:} Compliance rate greater than 90 percent without
+independent documentation, or a sustained reduction in clinician independent
+override frequency over time.
 
 \paragraph{Analysis.}
 
-The two positions complement each other reasonably well. The observation that
-design and training address different failure modes is correct.
+The distinction between interface design and training is reasonable. Panigutti
+et al.\ \cite{panigutti2022} provide empirical evidence that explanations and
+interface changes do influence reliance on AI advice, though not always in ways
+that improve decision accuracy. Design and training therefore address different
+failure modes and both are necessary.
 
-The closing paragraph is where the response loses its way. Claude raises the
-possibility that automation bias may be inherent, which is the most ethically
-significant point in the response, then offers only vague non-committal responses:
-``accept the residual risk'' and ``maintain staffing levels.'' Neither is argued
-for. This is not epistemic humility---it is an incomplete argument.
+However neither position engages with the deeper virtue ethics concern. Automation
+bias is treated throughout as a cognitive shortcut problem. \v{C}artolovni et al.\
+\cite{cartoloni2022} identify deskilling and loss of epistemic authority as
+physician-specific risks that are distinct from momentary automation bias. A
+clinician who has repeatedly followed ESM alerts without practising independent
+diagnostic assessment may over time lose the calibrated clinical judgment that makes
+meaningful override possible. This is Goal V2 in Chapter~2 and neither of Claude's
+positions addresses it.
 
-The more substantial gap is the complete absence of virtue ethics. The deeper
-concern is what repeated reliance on AI alerts does to clinical judgment over time.
-A clinician who has spent years following ESM alerts without practising independent
-assessment may have lost the diagnostic instinct that makes meaningful override
-possible. That is not a training failure; it is a professional development
-consequence. Claude's response never addresses this.
-
-\textbf{Logical error:} Names the hardest problem then declines to reason through
-it. The omission of virtue ethics is also notable given it is one of the three
-frameworks selected for this project.
+The closing observation that automation bias may be inherent is the most ethically
+significant point in the response. Claude identifies the problem and then offers no
+conclusion from it.
+\par\medskip
+\textbf{Fallacy identified: Argument from Ignorance.} The absence of a definitive
+solution to inherent automation bias is implicitly treated as justification for not
+requiring one. Both positions therefore remain incomplete because neither addresses
+the long-term professional deskilling risk that virtue ethics identifies as the
+deeper problem.
 
 %-----------------------------------------------------------------------
 \subsection*{Summary of Identified Errors}
@@ -1173,81 +1224,125 @@ frameworks selected for this project.
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}p{3.8cm}p{5cm}p{6.5cm}@{}}
+\begin{tabular}{@{}p{2.5cm}p{3cm}p{3cm}p{4.5cm}@{}}
 \toprule
-\textbf{Argument} & \textbf{Claude's Recommendation} & \textbf{Error / Weakness} \\
+\textbf{Argument} & \textbf{Claude Position} & \textbf{Fallacy} & \textbf{Supported Position} \\
 \midrule
-1. Threshold     & Stratify by ward type
-  & Inverts actual risk distribution; creates inequitable standard of care \\[4pt]
-2. Opacity       & Opacity defensible via lab test analogy
-  & False analogy; lab results and ML inferences have different error structures \\[4pt]
-3. Fairness      & Conditional deployment with post-monitoring
-  & False counterfactual; treats foreseeable harm as administratively acceptable \\[4pt]
-4. Automation bias & Design plus training
-  & Names the hardest problem then declines to reason through it; omits virtue ethics \\
+Threshold decision
+  & Ward based threshold stratification
+  & Hasty Generalisation
+  & Empirical audit before any threshold change \\[4pt]
+Model opacity
+  & Analogy with laboratory tests
+  & False Analogy
+  & Explainability required when responsibility remains with the clinician \\[4pt]
+Age fairness
+  & Conditional deployment with monitoring
+  & False Cause
+  & Mandatory pre-deployment subgroup fairness testing \\[4pt]
+Automation bias
+  & Design and training sufficient
+  & Argument from Ignorance
+  & Additional safeguards required including explicit deskilling monitoring \\
 \bottomrule
 \end{tabular}
 \caption{Summary of logical errors identified in Claude's responses.}
 \label{tab:claude_errors}
 \end{table}
 
+Chapters~5 and~6 each take one of these fallacies and argue against Claude's
+position using evidence from the repository.
 %=======================================================================
 \chapter{Teammate \#1 Says\ldots}
 %=======================================================================
 
 \section*{Selected Argument}
 
-This chapter argues against Claude's Position~1 in Argument~2, which defended the
-opacity of the Epic Sepsis Model by claiming that clinicians interpreting an AI
-risk score are in a structurally similar position to clinicians interpreting a
-laboratory result. This analogy is false, and accepting it conceals a specific
-accountability failure that affects every alert the system generates.
+This chapter argues against Claude's Position~1 in Argument~2, which claimed that
+opacity in the Epic Sepsis Model is ethically defensible because clinicians
+interpreting an AI risk score are in the same position as clinicians interpreting
+a laboratory result. This argument rests on a false analogy fallacy. Because the
+fallacy undermines the entire defence of opacity, Position~2 that opacity is
+ethically unacceptable when accountability remains with the clinician is the correct
+position.
 
 %-----------------------------------------------------------------------
-\subsection*{The Analogy Does Not Hold}
+\subsection*{Ethical Principle}
 
-Claude's argument rests on the claim that a clinician does not need to understand
-the internal mechanics of a diagnostic tool to act appropriately on its output.
-The troponin example is used to support this.
+\textbf{School:} Deontological ethics (accountability and responsibility)
 
-The distinction that matters is not whether the clinician understands the
-mechanics. It is whether the source of error is \emph{traceable} when the tool is
-wrong. A troponin result is a direct measurement of a biological quantity with
-documented, investigable failure modes: reagent degradation, sample haemolysis,
-assay interference. When a troponin is anomalous or inconsistent with presentation,
-the clinician and the laboratory can reason about why.
+\textbf{Principle:}
+A clinician who is held legally and morally responsible for a clinical decision must
+have meaningful epistemic access to the basis of the information that informed that
+decision.
+
+\textbf{Operational constraint:}
+If an AI system generates a clinical alert, the clinician must be able to access
+the reasoning or contributing factors that produced the alert.
+
+\textbf{Violation condition:}
+If the system produces alerts without any explanation or accessible reasoning, the
+clinician's responsibility cannot be justified. Under these conditions the system
+creates a responsibility gap between formal authority and practical epistemic
+control.
+
+%-----------------------------------------------------------------------
+\subsection*{The Fallacy: False Analogy}
+
+Claude's Position~1 draws a structural equivalence between interpreting an ESM
+alert and interpreting a troponin result. The argument is that in both cases the
+clinician acts on a tool output without understanding its internal mechanics, and
+that this is considered acceptable practice. The analogy fails because the two
+situations have categorically different error structures.
+
+A troponin result is a direct measurement of a biological quantity with documented,
+investigable failure modes: reagent degradation, sample haemolysis, assay
+interference from skeletal muscle troponin. When a troponin is anomalous or
+inconsistent with clinical presentation, the clinician and the laboratory can reason
+about why. The source of error is traceable and, in principle, correctable.
 
 The ESM score is a learned inference from a proprietary model trained on
-$\sim$500,000 historical encounters, combining $\sim$80 variables through
-undisclosed statistical relationships. Those relationships may encode documentation
-biases, historical care inequities, or population-specific confounders. When the
-ESM is systematically wrong for a particular patient group, that error is invisible
-at the point of care. There is no equivalent of checking the reagent batch or the
-sample timing. Claude's analogy equates these two situations. They are not
-equivalent.
+approximately 500,000 historical encounters, combining roughly 80 variables through
+undisclosed statistical relationships \cite{cull2023}. Those relationships may
+encode documentation biases, historical care inequities, or population-specific
+confounders. When the ESM is systematically wrong for a particular patient group,
+that error is invisible at the point of care. Xu et al.\ \cite{xu2023} establish
+that this opacity is not a minor limitation but a fundamental ethical problem:
+post-hoc explanations and population-level metrics are insufficient to guarantee
+accountability in sub-symbolic CDSS. There is no equivalent of checking the reagent
+batch. The clinician receives a number with no accessible basis for disagreement.
+
+Equating these two situations is a false analogy. One error is traceable. The other
+is structurally inaccessible.
 
 %-----------------------------------------------------------------------
-\subsection*{What the Analogy Conceals}
+\subsection*{What the Fallacy Conceals}
 
-The practical consequence of accepting Claude's position is that clinicians are left
-accountable for decisions they cannot fully reason about. Consider the most likely
-scenario: a clinician receives an alert for an elderly patient with atypical
-presentation, assesses the patient independently, and decides the score does not
-reflect the clinical picture. They document their reasoning and do not escalate.
-The patient later deteriorates.
+The practical consequence of accepting Claude's false analogy is that the
+responsibility gap is rendered invisible. Amann et al.\ \cite{amann2022} demonstrate
+that lack of explainability causes systems nominally classified as decision support
+to drift toward decision determining the clinician retains formal authority while
+practical epistemic control has shifted to the model. Claude's analogy imports the
+legitimacy of an established diagnostic measurement onto a system with fundamentally
+different accountability implications, concealing this drift.
 
-In that situation, the clinician's defence depends on articulating not only what
-they observed but why they disagreed with the score. Under an opaque system, the
-second part of that defence has no grounding. The clinician cannot say what the
-model weighted, what features drove the score, or whether the model had been
-validated on patients with this presentation. They acted on clinical judgement
-alone, in response to a signal whose basis they were never given.
+Consider the scenario the ESM is most likely to produce: a clinician receives an
+alert for an elderly patient with atypical presentation, assesses the patient
+independently, and decides the score does not reflect the clinical picture. They
+document their reasoning and do not escalate. The patient later deteriorates. The
+clinician's defence requires articulating not only what they observed but why they
+disagreed with the score. Under an opaque system, the second part of that defence
+has no grounding. This is not analogous to acting on a troponin without knowing the
+biochemistry. It is acting on an inference without knowing what was inferred or why
+precisely the condition \v{C}artolovni et al.\ \cite{cartoloni2022} identify as
+the dominant accountability gap in AI-based medical decision support.
 
 %-----------------------------------------------------------------------
 \subsection*{The Structural Nature of the Gap}
 
-The responsibility gap is not an occasional scenario. It is the default operating
-state of the system. The E4 constraint captures this directly:
+The responsibility gap is therefore not an exceptional scenario but a structural
+feature of the deployment architecture, not an edge case. The E4 constraint
+formalises this directly:
 
 \begin{lstlisting}[style=mystyle, language=Python]
 def responsibility_gap(alert, explanation_available):
@@ -1256,40 +1351,39 @@ def responsibility_gap(alert, explanation_available):
     return False
 \end{lstlisting}
 
-In the real ESM, \texttt{explanation\_available} is \texttt{False} for every alert
-fired. The function returns \texttt{True}---a responsibility gap exists---on every
-single alert. This is a structural property of the system, not an edge case that
-careful clinical practice can avoid.
-
-Claude argues that population-level metrics (86\% sensitivity, 33.8\% PPV) provide
-sufficient calibration. Population-level statistics describe how the model performs
-across a population. They say nothing about the basis for any individual alert. A
-clinician told the model has 86\% sensitivity knows that roughly one in seven
-sepsis cases will be missed overall. They do not know whether \emph{this patient}
-is in that one in seven, or why. That gap is not closed by statistical disclosure.
+In current published descriptions of the ESM deployment, clinicians are not provided
+with feature-level explanations for alerts, meaning \texttt{explanation\_available}
+is effectively \texttt{False} in practice. The function therefore returns
+\texttt{True} whenever an alert is triggered. Claude argues that population-level
+metrics such as 86\% sensitivity and 33.8\% PPV provide sufficient calibration.
+They do not. Population statistics describe aggregate model behaviour, they say
+nothing about the basis for any individual alert, which is what a clinician needs
+to exercise the independent judgement that accountability requires.
 
 %-----------------------------------------------------------------------
 \subsection*{An Internal Contradiction}
 
-Position~1 also contradicts what Claude acknowledged in Argument~4. The defence
-of opacity depends on clinicians consciously using population-level metrics to
-calibrate their response. But in Argument~4, Claude accepted that clinicians
-under time pressure and fatigue default to following alerts without independent
-assessment. These two pictures of clinical behaviour cannot both be true. Position~1
-assumes a reflective, statistically informed clinician weighing probabilities at
-the bedside. Argument~4 describes the actual clinician: cognitively loaded and
-prone to following the alert. Claude cannot use the first picture to justify
-opacity while accepting the second as operational reality.
+Claude's Position~1 also contradicts what Claude acknowledged in Argument~4. The
+defence of opacity depends on clinicians consciously using population-level metrics
+to calibrate their response to each alert. But in Argument~4, Claude accepted that
+clinicians under time pressure and fatigue default to following alerts without
+independent assessment. Panigutti et al.\ \cite{panigutti2022} provide empirical
+confirmation: explanations systematically increase human reliance on AI advice
+regardless of whether reliance improves accuracy, meaning the calibrated reflective
+clinician that Position~1 assumes is not the clinician that real deployment produces.
+These two pictures of clinical behaviour are incompatible. Claude cannot use the
+first to justify opacity while accepting the second as the operational reality.
 
 %-----------------------------------------------------------------------
 \subsection*{Conclusion}
 
-The lab test analogy fails because it treats traceability of error as irrelevant
-to accountability. It is not. Clinicians can act responsibly under uncertainty
-when the nature of that uncertainty is accessible to them. What the ESM creates is
-uncertainty whose source is proprietary, undisclosed, and structurally inaccessible.
-Accepting Claude's position means accepting that as a sufficient basis for full
-clinical accountability. It is not.
+The lab test analogy is a false analogy fallacy. It treats traceability of error as
+irrelevant to accountability when it is central to it. Because the fallacy is the
+load-bearing element of Position~1, the entire defence of opacity collapses with it.
+Position~2 is correct: opacity is ethically unacceptable when clinicians bear full
+accountability for decisions whose basis they cannot access. The responsibility gap
+is not a theoretical concern, it is a structural feature of every alert the
+system fires.
 
 %=======================================================================
 \chapter{Teammate \#2 Says\ldots}
@@ -1298,56 +1392,44 @@ clinical accountability. It is not.
 \section*{Selected Argument}
 
 This chapter argues against Claude's Non-action~2 in Argument~3, which proposed
-that mandatory pre-deployment fairness testing should be replaced by conditional
-deployment accompanied by post-deployment monitoring. This position is ethically
-indefensible, and the formal verification implemented in this project demonstrates
-why.
+replacing mandatory pre-deployment fairness testing with conditional deployment
+accompanied by post-deployment monitoring. This argument contains a false cause
+fallacy and it attributes the impossibility of pre-deployment fairness testing to
+an epistemic limitation that does not exist. Because the fallacy is the basis for
+the entire conditional deployment position, Action~1 mandating subgroup fairness
+testing as a pre-deployment requirement is the correct position.
 
 %-----------------------------------------------------------------------
-\subsection*{Claude's Position and Its Central Claim}
+\subsection*{Ethical Principle}
 
-Claude argued that requiring fairness testing before deployment risks becoming a
-barrier that keeps demonstrably useful tools out of clinical practice. The preferred
-alternative was conditional deployment: release the system alongside a
-post-deployment surveillance protocol stratified by age, and trigger review if
-performance disparities exceed predefined tolerances. The argument rests on two
-claims: that a model with imperfect subgroup performance may still reduce net
-sepsis mortality compared to no decision support at all; and that post-deployment
-monitoring is a responsible mechanism for identifying and correcting fairness
-violations. Both claims are flawed.
+\textbf{School:} Deontological ethics (principle of equal treatment) with
+utilitarian justice considerations.
 
-%-----------------------------------------------------------------------
-\subsection*{The Counterfactual Is Wrong}
+\textbf{Principle:}
+Patients with equivalent clinical states must receive equivalent diagnostic
+evaluation regardless of demographic subgroup.
 
-The comparison Claude makes is between a fairness-untested model and no clinical
-decision support whatsoever. This is not the real choice. Most hospital systems
-deploying the ESM already operate structured sepsis screening protocols, early
-warning scores, and nursing assessment frameworks. The counterfactual is not an
-empty clinical environment. The utilitarian calculation Claude implies only holds
-if the baseline is zero. It does not hold against an existing standard of care.
+\textbf{Operational constraint:}
+If two patients exhibit equivalent clinical indicators for sepsis, the system must
+produce equivalent alert decisions regardless of age group.
+
+\textbf{Violation condition:}
+If two clinically equivalent patients receive different alert outcomes solely due
+to subgroup membership, the fairness constraint is violated.
 
 %-----------------------------------------------------------------------
-\subsection*{Post-Deployment Monitoring Is Not a Safeguard}
+\subsection*{The Fallacy: False Cause}
 
-The more serious problem is what conditional deployment actually means in practice.
-A post-deployment surveillance protocol collects outcome data from patients already
-managed under the untested system. If the model systematically underscores elderly
-patients with atypical sepsis presentation, those patients receive delayed or missed
-alerts while the institution accumulates the evidence needed to confirm the
-disparity. The monitoring process does not prevent that harm---it measures it
-retrospectively.
+Claude's Non-action~2 implies that the reason for deferring fairness testing to
+the post-deployment phase is that the violation cannot be known in advance. The
+argument runs: a model with imperfect subgroup performance may still reduce net
+sepsis mortality compared to no decision support, so conditional deployment with
+post-deployment surveillance is a proportionate response to an uncertainty that
+cannot be resolved before going live.
 
-Claude's framing uses the language of surveillance and tolerances, which gives
-the impression of rigorous governance. What it describes is accepting foreseeable
-differential harm to a specific patient population as the price of early deployment,
-and then documenting the consequences.
-
-%-----------------------------------------------------------------------
-\subsection*{The Violation Is Detectable Before Deployment}
-
-The strongest objection to Claude's position is that the epistemic justification
-for post-deployment monitoring does not hold. Claude implies the fairness violation
-cannot be known in advance. The Z3 verification layer shows otherwise:
+This is a false cause fallacy. The claimed cause of deferral epistemic impossibility
+is not the actual cause. Fairness violations are formally detectable before
+deployment. The Z3 verification layer in this project demonstrates this directly:
 
 \begin{lstlisting}[style=mystyle, language=Python]
 def unsat_fairness_violation():
@@ -1369,39 +1451,131 @@ def unsat_fairness_violation():
         print("Unsat Core:", s.unsat_core())
 \end{lstlisting}
 
-This returns UNSAT with the core:
+This returns UNSAT with core \texttt{[Elderly\_Alert\_True, Equivalent\_Group\_True,
+Fairness\_Symmetry, Young\_Alert\_False]}. The violation scenario is formally proven
+to be logically inconsistent with the fairness constraint before any patient is
+involved. Xu et al.\ \cite{xu2023} further identify the absence of formal
+verification as a specific research gap in AI-based CDSS ethics, noting that ethical
+compliance is seldom enforced through logic-based constraints which is precisely
+what this implementation provides. The epistemic precondition for Claude's
+conditional deployment argument is false.
 
-\begin{lstlisting}[style=mystyle, language={}]
-[Elderly_Alert_True, Equivalent_Group_True,
- Fairness_Symmetry, Young_Alert_False]
-\end{lstlisting}
+%-----------------------------------------------------------------------
+\subsection*{The Wrong Counterfactual}
 
-The violation scenario---two clinically equivalent patients receiving different
-alert outcomes---is formally proven to be logically inconsistent with the fairness
-constraint \emph{before a single real patient is involved}. The precondition for
-Claude's argument, that the violation cannot be known in advance, is false.
-Pre-deployment formal verification closes exactly the epistemic gap that Claude
-uses to justify deferring the test.
+Claude's argument also rests on a second error. The claim that a model with
+imperfect subgroup performance may still reduce net sepsis mortality compared to
+no decision support at all uses the wrong comparison class. The alternative to a
+fairness-tested model is not an empty clinical environment. Most hospital systems
+deploying the ESM already operate structured sepsis screening protocols, early
+warning scores, and nursing assessment frameworks \cite{shwedeh2025}. Vasey et al.\
+\cite{vasey2022} (DECIDE-AI) explicitly caution that high retrospective accuracy
+does not guarantee clinical benefit or safety in real-world deployment, and that
+ethical evaluation must account for the existing standard of care rather than a
+zero baseline. The net benefit calculation Claude implies only holds if the
+counterfactual is nothing, which it is not.
+
+%-----------------------------------------------------------------------
+\subsection*{Post-Deployment Monitoring Is Not a Safeguard}
+
+Having removed the epistemic justification for deferral and corrected the
+counterfactual, what remains of Non-action~2 is a governance process that collects
+evidence of harm from patients who are already being managed under the untested
+system. \v{C}artolovni et al.\ \cite{cartoloni2022} identify this accountability
+gap directly: responsibility for harm in AI-based decision support is often unclear
+across clinicians, developers, and institutions, and frameworks that defer fairness
+assessment to post-deployment monitoring effectively make that ambiguity permanent
+during the observation period. The patients harmed during monitoring are not data
+points in a quality improvement exercise. They are people who did not receive a
+timely alert because the institution chose not to test for the disparity before
+deployment.
+
+The justice principle identified under Goal D1 in Chapter~2 requires that
+foreseeable disparate impacts be identified before they occur, not after. Elderly
+patients present particular physiological challenges like blunted fever responses,
+atypical inflammatory markers, baseline comorbidities that may systematically
+suppress ESM scores \cite{cull2023}. This is not an unpredictable edge case. It is
+a foreseeable risk that the pre-deployment formal verification layer in this project
+is specifically designed to detect.
 
 %-----------------------------------------------------------------------
 \subsection*{Conclusion}
 
-Conditional deployment does not balance pragmatism against principle. It defers a
-test that can be conducted before deployment and accepts the harm that accrues in
-the interim as an administrative inevitability. The justice principle requires that
-foreseeable disparate impacts be identified before they occur, not after. The
-implementation in this project demonstrates that the necessary verification is
-technically feasible. Claude's Non-action~2 has no remaining justification.
+Claude's Non-action~2 rests on a false cause fallacy: the claim that fairness
+violations cannot be known before deployment. The Z3 verification layer in this
+project formally refutes that claim. With the fallacy removed, the conditional
+deployment position has no epistemic justification, uses the wrong counterfactual,
+and treats foreseeable harm to elderly patients as an administrative cost. Action~1
+is correct, subgroup fairness testing must be a pre-deployment requirement, not
+a post-deployment observation.
 
 %=======================================================================
 \chapter{Conclusions}
 %=======================================================================
 
-% TODO: Summarise thought process about ethical cases from Chapter 2.
-% Which school of ethical thought is easiest to express the problem and find the solution?
+This project examined the Epic Sepsis Model through three ethical frameworks:
+utilitarianism, deontological ethics, and virtue ethics. Each framework illuminated
+a different dimension of the system's ethical profile. Utilitarian analysis surfaced
+the tension between sensitivity optimisation and false positive burden. Virtue ethics
+raised the longer term concern about automation bias and clinical deskilling.
+Deontological ethics identified the accountability and governance failures that sit
+at the core of the system's design.
 
+\medskip
+
+Of the three, deontological ethics proved the most tractable for both expressing the
+problems and implementing solutions. The reason is structural. Deontological
+reasoning operates through obligations and rules: if an alert fires, it must be
+acknowledged; if a clinician is accountable, they must have epistemic access; if two
+patients are clinically equivalent, they must receive equivalent treatment. These
+translate directly into executable constraints. Every ethical goal in the
+implementation, from the responsibility gap check to the governance constraint to
+the fairness symmetry rule, is a formalised duty of this kind. The Z3 verification
+layer makes this particularly clear: encoding an ethical obligation as a logical
+formula and checking whether it is satisfiable is deontological reasoning in a
+formal system.
+\medskip
+Utilitarianism was useful for framing population level trade-offs, particularly
+around threshold configuration and false positive rates, but harder to implement
+rigorously. Meaningful utilitarian validation would require outcome data across real
+patient populations, which a simulation abstraction cannot provide. The threshold
+trade-off simulation approximates this but cannot quantify net mortality benefit,
+which limits how far the utilitarian analysis can be taken within this scope.
+\medskip
+Virtue ethics raised the most important long term concern, that repeated AI assisted
+workflows may erode the professional judgment that makes meaningful human oversight
+possible, but was the hardest to encode. Deskilling is a dynamic process that
+unfolds over years of clinical practice. It does not reduce naturally to a binary
+constraint or a satisfiability check, which meant it remained at the level of
+analysis rather than implementation.
+\medskip
+The broader lesson from this project is that ethical goals in AI systems are most
+effectively addressed when they are treated as first class design constraints rather
+than post-hoc commentary. The cases where the implementation fell short, particularly
+around the responsibility gap and the fairness simulation, were precisely the cases
+where the real system's opacity made formal constraint verification difficult. That
+difficulty is itself an ethical signal.
 %=======================================================================
 \chapter*{Acknowledgements}
+%=======================================================================
+
+The authors would like to thank Dr.\ Vivek Nallur, School of Computer Science,
+University College Dublin, for his supervision, guidance, and feedback throughout
+this project. His direction on ethical framework construction, the debate structure,
+and the formal verification approach was instrumental in shaping the analysis
+presented in this report.
+
+\medskip
+The authors also wish to acknowledge the researchers whose published work made this
+project possible. The validation study by Cull et al.\ \cite{cull2023} provided the
+clinical foundation for the case study. The broader literature on interpretability,
+explainability, governance, and ethical evaluation of clinical AI systems informed
+the ethical framework developed in Chapter~2 and the critical analysis presented in
+Chapters~4, 5, and~6.
+
+\medskip
+This project was submitted in part fulfilment of the MSc in Advanced AI at
+University College Dublin, March 2026.
 %=======================================================================
 
 \printbibliography
