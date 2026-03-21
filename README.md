@@ -228,3 +228,12 @@ In safety-critical domains, performance metrics are necessary.
 They are not sufficient.
 
 ---
+## License
+
+This project is licensed under the Apache License 2.0.
+
+See the [LICENSE](./LICENSE) file for full details.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+© 2026 Ashwin Prasanth and Kiran
