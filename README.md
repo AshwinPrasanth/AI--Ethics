@@ -2,6 +2,9 @@
 
 ## Case Study: Epic Sepsis Model (ESM)
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
+
+This project is licensed under the Apache License 2.0.
 ---
 
 ## Overview
